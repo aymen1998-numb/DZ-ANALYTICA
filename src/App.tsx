@@ -790,7 +790,7 @@ export default function App() {
                 </span>
               </div>
               <div className="flex gap-4">
-                <a href="#" className="p-2 bg-white/5 hover:bg-white/10 rounded-full text-gray-400 hover:text-white transition-all transform hover:scale-110" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/company/dz-analytica/?viewAsMember=true" target="_blank" rel="noopener noreferrer" className="p-2 bg-white/5 hover:bg-white/10 rounded-full text-gray-400 hover:text-white transition-all transform hover:scale-110" aria-label="LinkedIn">
                   <Linkedin className="w-4 h-4" />
                 </a>
                 <a href="#" className="p-2 bg-white/5 hover:bg-white/10 rounded-full text-gray-400 hover:text-white transition-all transform hover:scale-110" aria-label="Facebook">

@@ -102,6 +102,16 @@ const QUESTIONS = [
       { text: "أداة أساسية لتسهيل بيئة الأعمال ودفع النمو الاقتصادي للقطاع الخاص", trait: "pragmatist" },
       { text: "مشروع هيكلي يتطلب خطة مدروسة طويلة الأمد وتكويناً مستمراً للإطارات", trait: "reformer" }
     ]
+  },
+  {
+    id: 11,
+    text: "هل تمتلك بطاقة ناخب وهل تنوي التصويت في الانتخابات القادمة؟",
+    options: [
+      { text: "نعم، أمتلك بطاقة وسأصوت بالتأكيد", trait: "guardian" },
+      { text: "أمتلك بطاقة ولكنني لم أقرر بعد إذا كنت سأصوت", trait: "reformer" },
+      { text: "لا أمتلك بطاقة حالياً ولكنني سأسجل لأصوت", trait: "activist" },
+      { text: "لا أمتلك بطاقة ولن أصوت", trait: "pragmatist" }
+    ]
   }
 ];
 
@@ -109,30 +119,34 @@ const TRIBES = {
   guardian: {
     name: "مُحافِظ وحارس للاستقرار",
     description: "أنت تقدر التقاليد، الاستقرار، والأمن القومي فوق كل شيء. بالنسبة لك، الدولة القوية هي الضامن الوحيد لحماية المجتمع من الهزات. تفضل التغيير البطيء والمدروس جداً بدلاً من القفز في المجهول.",
-    color: "from-blue-600 to-blue-800",
-    bg: "bg-blue-900/20",
-    text: "text-blue-400"
+    color: "from-blue-500 to-indigo-600",
+    bg: "bg-indigo-900/40",
+    border: "border-indigo-500/30",
+    text: "text-indigo-300"
   },
   activist: {
     name: "ناشط القطيعة",
     description: "أنت تؤمن بأن الأنظمة القديمة لا يمكن إصلاحها من الداخل ويجب تجاوزها. النزاهة والشفافية هي بوصلتك. لا ترضى بأنصاف الحلول، وتطالب بتغيير جذري وشامل يقوده الشباب وأصحاب الأيادي النظيفة.",
-    color: "from-red-600 to-red-800",
-    bg: "bg-red-900/20",
-    text: "text-red-400"
+    color: "from-rose-500 to-red-600",
+    bg: "bg-rose-900/40",
+    border: "border-rose-500/30",
+    text: "text-rose-300"
   },
   pragmatist: {
     name: "البراغماتي العملي",
     description: "أنت لا تهتم كثيراً بالأيديولوجيا أو الشعارات السياسية، بل بالنتائج الملموسة. الاقتصاد والتنمية وخلق الثروة هي أولوياتك. تعتقد أن المشاكل تتطلب كفاءات إدارية من التكنوقراط وحلولاً تقنية، لا سياسية.",
-    color: "from-yellow-500 to-yellow-700",
-    bg: "bg-yellow-900/20",
-    text: "text-yellow-400"
+    color: "from-amber-400 to-orange-500",
+    bg: "bg-amber-900/40",
+    border: "border-amber-500/30",
+    text: "text-amber-300"
   },
   reformer: {
     name: "المُصلح الصامت",
     description: "أنت تؤمن بقوة المؤسسات، وترى أن التغيير الحقيقي يتطلب وقتاً وإصلاحات هيكلية مدروسة من الداخل. تتجنب الفوضى وكذلك الركود، وتفضل التحديث التدريجي، الانتقال السلس، وتطوير الأنظمة خطوة بخطوة.",
-    color: "from-dz-green-light to-dz-green-dark",
-    bg: "bg-dz-green-dark/20",
-    text: "text-dz-green"
+    color: "from-emerald-400 to-teal-600",
+    bg: "bg-emerald-900/40",
+    border: "border-emerald-500/30",
+    text: "text-emerald-300"
   }
 };
 
@@ -180,8 +194,17 @@ export function DZCompassQuiz({ isOpen, onClose }: DZCompassQuizProps) {
       /* مفتاح Web3Forms الخاص بك */
       formData.append("access_key", "725a478f-56ab-4808-856a-a00df97c5738");
       formData.append("subject", "DZ Analytica - استبيان جديد");
-      formData.append("quiz_result", getResult().name);
       
+      const resultObj = getResult();
+      formData.append("النتيجة السياسية (Tribe)", resultObj.name);
+
+      // Add detailed answers to formData
+      answers.forEach((answerTrait, index) => {
+        const questionObj = QUESTIONS[index];
+        const selectedOption = questionObj.options.find(opt => opt.trait === answerTrait);
+        formData.append(`السؤال ${index + 1}: ${questionObj.text}`, selectedOption ? selectedOption.text : answerTrait);
+      });
+
       await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         body: formData
@@ -335,16 +358,6 @@ export function DZCompassQuiz({ isOpen, onClose }: DZCompassQuizProps) {
                       className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-dz-gold transition-colors text-right"
                     />
                   </div>
-                  <div>
-                    <input 
-                      name="phone" 
-                      required 
-                      type="tel" 
-                      placeholder="رقم الهاتف الخلوي المجاني" 
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-dz-gold transition-colors text-right"
-                      dir="rtl"
-                    />
-                  </div>
                   <button 
                     disabled={isSubmittingLead}
                     type="submit"
@@ -367,32 +380,55 @@ export function DZCompassQuiz({ isOpen, onClose }: DZCompassQuizProps) {
               >
                 <div className="w-24 h-24 mx-auto bg-white/5 rounded-full flex items-center justify-center mb-6 relative">
                   <div className={`absolute inset-0 rounded-full blur-xl opacity-50 bg-gradient-to-r ${getResult().color}`} />
-                  <Brain className={`w-12 h-12 relative z-10 ${getResult().text}`} />
+                  <div className="relative z-10 w-full h-full flex items-center justify-center bg-dz-dark rounded-full shadow-inner border border-white/10">
+                    <Brain className={`w-10 h-10 ${getResult().text}`} />
+                  </div>
                 </div>
                 
-                <h3 className="text-xl text-gray-400 mb-2">قبيلتك السياسية هي:</h3>
-                <h4 className={`text-4xl sm:text-5xl font-black mb-6 text-transparent bg-clip-text bg-gradient-to-r ${getResult().color}`}>
+                <h3 className="text-sm font-bold tracking-widest text-gray-400 mb-4">قبيلتك السياسية هي:</h3>
+                <h4 className={`text-4xl sm:text-5xl font-black mb-8 text-transparent bg-clip-text bg-gradient-to-l ${getResult().color} drop-shadow-xl`}>
                   {getResult().name}
                 </h4>
                 
-                <div className={`p-6 rounded-2xl ${getResult().bg} border border-white/5 mb-10`}>
-                  <p className="text-lg leading-relaxed text-gray-200">
+                <div className={`p-8 rounded-2xl ${getResult().bg} ${getResult().border} border shadow-lg mb-10`}>
+                  <p className="text-lg leading-relaxed text-gray-200 font-medium">
                     {getResult().description}
                   </p>
                 </div>
 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                  <a
+                    href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${encodeURIComponent(`لقد أجريت اختبار البوصلة السياسية DZ Compass وكانت نتيجتي: ${getResult().name}. اكتشف قبيلتك السياسية الآن!`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full sm:w-auto px-6 py-4 rounded-xl bg-[#1877F2] text-white font-bold transition-all flex items-center justify-center gap-2 hover:bg-[#1877F2]/90"
+                  >
+                    <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5z"/></svg>
+                    مشاركة على فيسبوك
+                  </a>
+                  <a
+                    href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(window.location.href)}&title=${encodeURIComponent('البوصلة السياسية للجزائر')}&summary=${encodeURIComponent(`لقد أجريت اختبار البوصلة السياسية DZ Compass وكانت نتيجتي: ${getResult().name}. اكتشف قبيلتك السياسية الآن!`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full sm:w-auto px-6 py-4 rounded-xl bg-[#0A66C2] text-white font-bold transition-all flex items-center justify-center gap-2 hover:bg-[#0A66C2]/90"
+                  >
+                    <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    مشاركة على لينكد إن
+                  </a>
+                </div>
+
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-4">
                   <button 
                     onClick={onClose}
-                    className="w-full sm:w-auto px-8 py-4 rounded-xl bg-dz-gold hover:bg-dz-gold-light text-dz-darker font-bold transition-colors"
+                    className={`w-full sm:w-auto px-10 py-4 rounded-xl font-bold transition-all shadow-xl bg-gradient-to-r ${getResult().color} text-white hover:scale-[1.02] border border-white/10`}
                   >
                     العودة للموقع
                   </button>
                   <button 
                     onClick={resetQuiz}
-                    className="w-full sm:w-auto px-8 py-4 rounded-xl bg-white/5 hover:bg-white/10 text-white font-bold transition-colors flex items-center justify-center gap-2"
+                    className="w-full sm:w-auto px-8 py-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white font-bold transition-all flex items-center justify-center gap-2"
                   >
-                    <RotateCcw className="w-4 h-4" />
+                    <RotateCcw className="w-5 h-5" />
                     إعادة الاختبار
                   </button>
                 </div>
