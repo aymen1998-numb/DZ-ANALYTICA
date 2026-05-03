@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
 import { 
   Menu, X, Map, FlaskConical, Ear, PenTool, BarChart3, GraduationCap, 
-  ChevronDown, ArrowLeft, Send, ShieldCheck, Users, BrainCircuit, Brain, Globe, CheckCircle2, ChevronLeft, LineChart, Database, Target, Layers, Cloud, Share2, Linkedin, Facebook, Twitter
+  ChevronDown, ArrowLeft, Send, ShieldCheck, Users, BrainCircuit, Brain, Globe, CheckCircle2, ChevronLeft, LineChart, Database, Target, Layers, Cloud, Share2, Linkedin, Facebook, Twitter, Presentation
 } from 'lucide-react';
 import { DZCompassQuiz } from './components/DZCompassQuiz';
+import { PitchDeck } from './components/PitchDeck';
 
 const navLinks = [
   { name: 'الرئيسية', href: '#home' },
@@ -19,6 +20,14 @@ export default function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isQuizOpen, setIsQuizOpen] = useState(false);
+  const [isPitchDeckOpen, setIsPitchDeckOpen] = useState(false);
+
+  useEffect(() => {
+    // Secret way to open the pitch deck
+    if (window.location.search.includes('pitchdeck=true')) {
+      setIsPitchDeckOpen(true);
+    }
+  }, []);
 
   const handleContactSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -250,7 +259,7 @@ export default function App() {
             >
               {[
                 { label: 'ناخب محلل', value: '+50,000' },
-                { label: 'حملة ناجحة', value: '12' },
+                { label: 'حملة انتخابية تجريبية', value: '8' },
                 { label: 'نمط شخصية', value: '8' },
                 { label: 'دقة التوقع', value: '94%' }
               ].map((stat, i) => (
@@ -279,7 +288,7 @@ export default function App() {
                 </div>
                 <h2 className="text-4xl font-bold mb-6">علم النفس يلتقي بالسياسة، <br/>بنزاهة تامة.</h2>
                 <p className="text-gray-400 text-lg mb-6 leading-relaxed">
-                  بدأت دزاير أناليتيكا كمشروع مختص في الأبحاث السايكومترية. فريقنا، بقيادة د. أمينة منصوري وياسين ولد علي، يجمع بين خبرات معمقة في علم النفس السياسي، علوم البيانات، واستراتيجيات الحملات الانتخابية.
+                  بدأت دزاير أناليتيكا كمشروع مختص في الأبحاث السايكومترية. فريقنا يجمع بين خبرات معمقة في علم النفس السياسي، علوم البيانات، واستراتيجيات الحملات الانتخابية، إلى جانب سبر الآراء والإحصاء الدقيق.
                 </p>
                 <div className="space-y-4 mb-8">
                   {[
@@ -343,6 +352,12 @@ export default function App() {
                     title: "الخريطة السيكومترية",
                     description: "فهم عميق لشخصيات الناخبين ودوافعهم الخفية باستخدام تقنيات تحليل البيانات وعلم النفس.",
                     icon: Map,
+                  },
+                  {
+                    id: "polling-statistics",
+                    title: "سبر الآراء والإحصاء",
+                    description: "إجراء استطلاعات رأي منهجية وبحوث إحصائية دقيقة لفهم توجهات الشارع وقياس مؤشرات الرأي العام.",
+                    icon: Database,
                   },
                   {
                     id: "message-lab",
@@ -805,8 +820,8 @@ export default function App() {
             <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-400">
               <a href="/brand-assets.html" target="_blank" className="hover:text-dz-gold transition-colors font-bold text-white">الهوية البصرية (شعارات)</a>
               <a href="#" onClick={(e) => e.preventDefault()} className="hover:text-white transition-colors">ميثاق الأخلاقيات</a>
-              <a href="#" onClick={(e) => e.preventDefault()} className="hover:text-white transition-colors">سياسة الخصوصية (قانون 18-07)</a>
-              <a href="#" onClick={(e) => e.preventDefault()} className="hover:text-white transition-colors">شروط الخدمة</a>
+              <a href="https://www.arpce.dz/ar/pub/c7e6n6" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">سياسة الخصوصية (قانون 18-07)</a>
+              <a href="#" onClick={(e) => { e.preventDefault(); alert("شروط الخدمة: المنصة قيد التطوير التجريبي ولا تتحمل أي مسؤولية قانونية في هذه المرحلة."); }} className="hover:text-white transition-colors">شروط الخدمة</a>
             </div>
           </div>
           <div className="mt-8 text-center text-gray-600 text-sm flex flex-col md:flex-row justify-between items-center gap-4">
@@ -818,6 +833,9 @@ export default function App() {
 
       {/* Quiz Modal */}
       <DZCompassQuiz isOpen={isQuizOpen} onClose={() => setIsQuizOpen(false)} />
+
+      {/* Pitch Deck Modal */}
+      <PitchDeck isOpen={isPitchDeckOpen} onClose={() => setIsPitchDeckOpen(false)} />
     </div>
   );
 }
