@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Helmet } from 'react-helmet-async';
 import { 
   Menu, X, Map, FlaskConical, Ear, PenTool, BarChart3, GraduationCap, 
-  ChevronDown, ArrowLeft, Send, ShieldCheck, Users, BrainCircuit, Brain, Globe, CheckCircle2, ChevronLeft, LineChart, Database, Target, Layers, Cloud, Share2, Linkedin, Facebook, Twitter, Presentation
+  ChevronDown, ArrowLeft, Send, ShieldCheck, Users, BrainCircuit, Brain, Globe, CheckCircle2, ChevronLeft, LineChart, Database, Target, Layers, Cloud, Share2, Linkedin, Facebook, Twitter, Presentation, PieChart
 } from 'lucide-react';
 import { DZCompassQuiz } from './components/DZCompassQuiz';
 import { PitchDeck } from './components/PitchDeck';
@@ -23,9 +23,15 @@ export default function App() {
   const [isPitchDeckOpen, setIsPitchDeckOpen] = useState(false);
 
   useEffect(() => {
-    // Secret way to open the pitch deck
-    if (window.location.search.includes('pitchdeck=true')) {
+    // Secret ways to open modals directly via URL path or parameters
+    const path = window.location.pathname.toLowerCase();
+    const search = window.location.search.toLowerCase();
+    
+    if (search.includes('pitchdeck=true') || path === '/pitchdeck' || path === '/deck') {
       setIsPitchDeckOpen(true);
+    }
+    if (search.includes('quiz=true') || search.includes('survey=true') || path === '/quiz' || path === '/survey' || path === '/compass') {
+      setIsQuizOpen(true);
     }
   }, []);
 
@@ -288,7 +294,7 @@ export default function App() {
                 </div>
                 <h2 className="text-4xl font-bold mb-6">علم النفس يلتقي بالسياسة، <br/>بنزاهة تامة.</h2>
                 <p className="text-gray-400 text-lg mb-6 leading-relaxed">
-                  بدأت دزاير أناليتيكا كمشروع مختص في الأبحاث السايكومترية. فريقنا يجمع بين خبرات معمقة في علم النفس السياسي، علوم البيانات، واستراتيجيات الحملات الانتخابية، إلى جانب سبر الآراء والإحصاء الدقيق.
+                  بدأت دزاير أناليتيكا كمشروع مختص في الأبحاث السايكومترية. فريقنا، بقيادة د. أمينة منصوري وياسين ولد علي، يجمع بين خبرات معمقة في علم النفس السياسي، علوم البيانات، واستراتيجيات الحملات الانتخابية.
                 </p>
                 <div className="space-y-4 mb-8">
                   {[
@@ -352,12 +358,6 @@ export default function App() {
                     title: "الخريطة السيكومترية",
                     description: "فهم عميق لشخصيات الناخبين ودوافعهم الخفية باستخدام تقنيات تحليل البيانات وعلم النفس.",
                     icon: Map,
-                  },
-                  {
-                    id: "polling-statistics",
-                    title: "سبر الآراء والإحصاء",
-                    description: "إجراء استطلاعات رأي منهجية وبحوث إحصائية دقيقة لفهم توجهات الشارع وقياس مؤشرات الرأي العام.",
-                    icon: Database,
                   },
                   {
                     id: "message-lab",
@@ -832,10 +832,16 @@ export default function App() {
       </footer>
 
       {/* Quiz Modal */}
-      <DZCompassQuiz isOpen={isQuizOpen} onClose={() => setIsQuizOpen(false)} />
+      <DZCompassQuiz isOpen={isQuizOpen} onClose={() => {
+        setIsQuizOpen(false);
+        if (window.location.pathname !== '/') window.history.pushState({}, '', '/');
+      }} />
 
       {/* Pitch Deck Modal */}
-      <PitchDeck isOpen={isPitchDeckOpen} onClose={() => setIsPitchDeckOpen(false)} />
+      <PitchDeck isOpen={isPitchDeckOpen} onClose={() => {
+        setIsPitchDeckOpen(false);
+        if (window.location.pathname !== '/') window.history.pushState({}, '', '/');
+      }} />
     </div>
   );
 }
