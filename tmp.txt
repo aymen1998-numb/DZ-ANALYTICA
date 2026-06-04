@@ -1,0 +1,134 @@
+13:  { name: 'الرئيسية', href: '#home' },
+14:  { name: 'من نحن', href: '#about' },
+15:  { name: 'خدماتنا', href: '#services' },
+16:  { name: 'دراسات حالة', href: '#case-studies' },
+17:  { name: 'اتصل بنا', href: '#contact' },
+56:        <title>DZ Analytica | دزاير أناليتيكا - Market Intelligence, B2B Expansion & Data Analytics in Algeria</title>
+57:        <meta name="description" content="دزاير أناليتيكا هي أول منصة جزائرية للنمذجة التنبؤية وتحليل البيانات. خيارك الأول لفهم السوق الجزائري، الدراسات السلوكية، الدخول للسوق (Market Entry)، وإدارة المشاريع. DZ Analytica provides Algerian market intelligence, B2B data, and consumer insights." />
+58:        <meta name="keywords" content="Market Research Algeria, B2B expansion Algeria, Algerian consumer data, Algerian startup, Data analytics Algeria, Market Entry Algeria, Enterprise software, Odoo Algeria, SaaS, Big Data, دزاير أناليتيكا, تحليل السوق الجزائرية, بيانات الشركات" />
+65:              "alternateName": "دزاير أناليتيكا",
+105:                      "description": "Deep insights into Algerian consumer behavior, market trends, and B2B opportunities. (دراسات السوق والرأي العام)"
+113:                      "description": "Cloud platform for data management and scalable B2B/B2C communications in Algeria. (إدارة البيانات السحابية)"
+121:                      "description": "Customized Odoo deployment and management for enterprises entering or operating in Algeria. (تنفيذ وتطوير أنظمة Odoo)"
+137:                <span className="text-white">دزاير </span>
+138:                <span className="text-dz-gold">أناليتيكا</span>
+181:                {t("الخريطة السياسية")}
+242:                  {t("الخريطة السياسية")}
+268:                {t("المجتمع ليس مجرد أرقام.")}<br />
+270:                  {t("إنهم أكثر من 28 مليون بالغ في الجزائر.")}
+272:                {t("ونحن نمتلك البيانات لفهم ما يحركهم.")}
+275:                {t("دزاير أناليتيكا: المنصة الجزائرية الأولى لتحليل البيانات وتقييم الرأي العام السايكومتري. نحول البيانات إلى استراتيجيات تواصلية وتأثيرية دقيقة باستخدام الذكاء الاصطناعي وعلم النفس.")}
+283:                  {t("استكشف خدماتنا")}
+291:                  {t("اكتشف تفضيلاتك الثقافية")}
+303:                { label: t('سلوك محلل'), value: '+50,000' },
+304:                { label: t('دراسة وتحليل معمق'), value: '8' },
+305:                { label: t('نمط شخصية'), value: '8' },
+306:                { label: t('دقة التوقع'), value: '94%' }
+329:                  <span className="text-sm font-semibold tracking-wider">{t("{t("ميثاق الأخلاقيات")}")}</span>
+331:                <h2 className="text-4xl font-bold mb-6 whitespace-pre-line">{t("علم النفس يلتقي بالبيانات، \nبنزاهة تامة.")}</h2>
+333:                  {t("بدأت دزاير أناليتيكا كمشروع مختص في الأبحاث السايكومترية. فريقنا، بقيادة د. أمينة منصوري وياسين ولد علي، يجمع بين خبرات معمقة في دراسات السلوك والمجتمع، علوم البيانات، واستراتيجيات التأثير الجماهيري.")}
+337:                    t('لا نستخدم بيانات مسروقة أو غير مصرح بها.'),
+338:                    t('موافقة صريحة وكاملة لجمع البيانات.'),
+339:                    t('معالجة البيانات محلياً وفقاً لقانون حماية البيانات 18-07.'),
+340:                    t('لا نتعامل مع أهداف تضليلية أو نشر الكراهية.')
+361:                    alt="فريق الخبراء" 
+365:                    <h3 className="font-bold text-xl mb-2">{t("قيادة أكاديمية وعملية")}</h3>
+366:                    <p className="text-gray-400 text-sm">{t("نحن نترجم الأبحاث الأكاديمية المعقدة إلى استراتيجيات سياسية قابلة للتنفيذ على أرض الواقع الجزائري.")}</p>
+378:              <h2 className="text-4xl font-bold mb-6">{t("حلولنا الذكية")}</h2>
+380:                {t("باقات خدمات متكاملة مصممة خصيصاً لتلبية احتياجات المؤسسات، صُنّاع القرار والوكالات الكبرى في الجزائر لفهم وتوجيه الجمهور.")}
+388:                    title: t("النمذجة التنبؤية"),
+389:                    description: t("نماذج رياضية وإحصائية لتوقع سلوكيات الجمهور وتحديد الفئات المتأرجحة بدقة رياضية عالية."),
+394:                    title: t("الخريطة السيكومترية"),
+395:                    description: t("فهم عميق لشخصيات الجمهور ودوافعهم الخفية باستخدام تقنيات تحليل البيانات وعلم النفس."),
+400:                    title: t("مختبر اختبار الرسائل"),
+401:                    description: t("اختبر فعالية رسائلك التواصلية والتسويقية قبل إطلاقها. نستخدم تقنيات A/B Testing لضمان أقصى تأثير."),
+406:                    title: "صوت دزاير (Saout Dzayer)",
+407:                    description: lang === 'ar' ? "منصة استماع اجتماعي تراقب النبض العام للشارع الجزائري وتحلل المشاعر والانطباعات في الوقت الفعلي." : "Social listening platform monitoring the Algerian public pulse in real-time.",
+412:                    title: t("تصميم السردية"),
+413:                    description: t("صياغة قصة علامتك أو مشروعك بطريقة تتوافق مع التوجهات النفسية والقيمية لشريحتك المستهدفة."),
+418:                    title: lang === 'ar' ? "استطلاعات ضمنية 2.0" : "Implicit Polling 2.0",
+419:                    description: lang === 'ar' ? "قياس الانحيازات الضمنية وردود الفعل العفوية تجاه القضايا الساخنة خارج نطاق الاستطلاعات التقليدية." : "Measuring implicit biases and spontaneous reactions beyond traditional polling.",
+424:                    title: t("أكاديمية صناع القرار"),
+425:                    description: t("تدريب مكثف لفرق العمل والقيادات على استراتيجيات التواصل المبنية على البيانات وإدارة الأزمات."),
+430:                    title: t("تنفيذ وتطوير أنظمة Odoo"),
+431:                    description: t("تهيئة وإدماج أنظمة تخطيط الموارد (ERP) باستخدام Odoo لإدارة المؤسسات والمشاريع بفعالية، مع الدعم الفني المستمر واستضافة سحابية آمنة في الجزائر."),
+436:                    title: t("{t("تصميم وتنفيذ الاستبيانات")}"),
+437:                    description: t("جمع البيانات الميدانية بدقة عالية، وتصميم اختبارات ودراسات استقصائية شاملة لتغذية نماذج الذكاء الاصطناعي وبناء استراتيجيات معتمدة على الواقع المجتمعي."),
+477:                  <span className="text-sm font-semibold tracking-wider">برمجيات كخدمة (SaaS)</span>
+480:                  مركز القيادة الرقمي <br/>
+482:                    لمشاريعك التواصلية الميدانية.
+486:                  على غرار المنصات العالمية (مثل Civis Analytics)، نقدم أول منصة سحابية جزائرية لإدارة وتحليل بيانات الجمهور. منصتنا تجمع بياناتك المشتتة، وتنقلها عبر خوارزميات الذكاء الاصطناعي وتحولها إلى رؤى وقوائم استهداف دقيقة لفريقك.
+489:                  تُمكنك المنصة من الاستغناء تماماً عن الإدارة التقليدية المعقدة؛ فبنقرة واحدة، يمكنك بناء قوائم مفصّلة للجمهور المستهدف، وتوجيه فرقك إلى المناطق الأكثر أهمية، ومراقبة الأداء لحظة بلحظة ضمن بيئة سحابية مؤمنة.
+494:                    { icon: Layers, title: 'توحيد البيانات (Identity Resolution)', desc: 'دمج قواعد البيانات المفتوحة، الاستبيانات، والتفاعلات في منصة مركزية موحدة.' },
+495:                    { icon: LineChart, title: 'النمذجة التنبؤية (Predictive Modeling)', desc: 'توقع السلوكيات والانطباعات، تحديد التوجهات، ودراسة تفاعل الجمهور مع مبادراتك.' },
+496:                    { icon: Target, title: 'التوجيه الميداني (Activation)', desc: 'إنشاء خرائط تحرك وتوجيه للمناضلين لاستهداف الأحياء الأكثر أهمية.' },
+497:                    { icon: ShieldCheck, title: 'استضافة سيادية محليّة', desc: 'بنية أمنية متوافقة تماماً مع قانون 18-07 لحماية البيانات الشخصية.' }
+519:                  احجز عرضاً تجريبياً للمنصة (Demo)
+547:                        <h3 className="text-lg font-bold">بناء جمهور مستهدف (Audience Builder)</h3>
+548:                        <p className="text-sm text-gray-500">بلدية: حسين داي | الفئة: متأرجحين شباب</p>
+552:                        جاهز للتصدير
+559:                         <span className="text-dz-gold font-bold">تطابق</span>
+560:                         <span className="text-gray-300">العمر بين</span>
+564:                         <span className="text-dz-gold font-bold">تطابق</span>
+565:                         <span className="text-gray-300">النمط السايكومتري:</span>
+566:                         <span className="bg-black/30 px-2 py-1 rounded text-white font-mono">الناشط المتمرد</span>
+569:                         <span className="text-gray-500 font-bold">استبعاد</span>
+570:                         <span className="text-gray-300">درجة التردد العالية في اتخاذ القرار</span>
+577:                        <div className="text-gray-500 text-xs mb-1">المطابقة الكلية</div>
+579:                        <div className="text-[10px] text-gray-500 mt-1">شخص يطابق المعايير</div>
+583:                        <div className="text-dz-gold text-xs mb-1 relative z-10">فرصة التفاعل</div>
+589:                        <div className="text-xs font-bold text-white">إرسال للميدان</div>
+607:                    <div className="text-sm font-bold">{t("تم تخصيص القائمة")}</div>
+608:                    <div className="text-xs text-gray-400">{t("لـ فريق العمل الميداني (حسين داي)")}</div>
+620:              <h2 className="text-4xl font-bold mb-6">{t("نتائج على أرض الواقع")}</h2>
+622:                {t("كيف حولنا البيانات إلى تأثير مجتمعي ونجاحات ملموسة.")}
+634:                <div className="text-sm font-bold tracking-widest text-dz-gold mb-4 uppercase">{t("حالة دراسية مجهولة الهوية")}</div>
+635:                <h3 className="text-3xl font-bold mb-6">{t("دراسة توجهات الرأي العام")} - {t("ولاية البليدة")}</h3>
+637:                  {t("واجهت مؤسسة محلية تحدياً كبيراً في التواصل والتفاعل مع فئة الشباب (18-35 عاماً) الذين يشكلون فئة ديموغرافية حاسمة. كانت رسائل التواصل التقليدية غير فعالة.")}
+641:                    <div className="font-bold text-white mb-2">{t("التدخل:")}</div>
+642:                    <p className="text-gray-400 text-sm leading-relaxed">{t("استخدمنا الخريطة السيكومترية لتحديد أنماط الشباب. اكتشفنا أن فئة \"الناشط المتميز\" كانت الأكبر. قمنا بتعديل السردية الاستراتيجية لتلائم تطلعاتهم الديناميكية وتتفاعل مع اهتماماتهم المباشرة.")}</p>
+647:                      <div className="text-xs text-gray-500">{t("التفاعل الأولي للشباب")}</div>
+651:                      <div className="text-xs text-gray-500">{t("التفاعل بعد التوجيه السايكومتري")}</div>
+668:                      <div className="flex-1">{t("بداية المشروع")}</div>
+669:                      <div className="flex-1">{t("مرحلة القياس الثانية")}</div>
+670:                      <div className="flex-1 text-dz-gold font-bold">{t("النهاية المرجوة")}</div>
+682:              <h3 className="text-sm font-bold tracking-widest text-gray-500 uppercase">{t("نتعاون مع مؤسسات رائدة وموثوقة")}</h3>
+687:                <span className="text-xs text-gray-400 font-bold">{t("الديوان الوطني للإحصائيات (ONS)")}</span>
+692:                <span className="text-xs text-gray-400 font-bold">{t("مركز البحث في الاقتصاد المطبق (CREAD)")}</span>
+705:              <h2 className="text-4xl md:text-5xl font-black mb-8 leading-tight">{t("شارك في بناء أكبر دراسة\nللسلوكيات الثقافية والمجتمعية في الجزائر").split("\n").map((line, i) => <React.Fragment key={i}>{line}<br/></React.Fragment>)}</h2>
+707:                {t("البوصلة السايكومترية الجزائرية (DZ Compass) هو اختبار مجاني ومجهول الهوية بالكامل. في 10 أسئلة فقط، اكتشف نمط شخصيتك وتفضيلاتك الثقافية.")}
+717:                <span dir={lang === "ar" ? "rtl" : "ltr"}>{t("اكتشف شخصيتك")}</span>
+722:                <span>{lang === "ar" ? "البيانات مجهولة الهوية بنسبة 100٪ ولن يتم بيعها لأطراف ثالثة." : "Data is 100% anonymous and will never be sold to third parties."}</span>
+732:                <h2 className="text-4xl font-bold mb-6">{t("ابدأ حملتك المبنية على البيانات اليوم.")}</h2>
+734:                  {t("هل تقود مبادرة مجتمعية أو مشروع تواصلي أو ترغب بدخول السوق الجزائري؟ تواصل معنا لتحديد موعد استشارة سرية ومناقشة كيف يمكن للبيانات أن تغير مسار مشروعك.")}
+743:                      <div className="font-bold mb-1">{t("المقر الرئيسي")}</div>
+744:                      <div className="text-gray-400">{t("حيدرة، الجزائر العاصمة")}<br/>{t("الجمهورية الجزائرية الديمقراطية الشعبية")}</div>
+752:                      <div className="font-bold mb-1">{t("استفسارات أكاديمية وإعلامية")}</div>
+767:                    <h3 className="text-2xl font-bold mb-2">{t("تم الإرسال بنجاح")}</h3>
+768:                    <p className="text-gray-400 text-lg">{t("سنتواصل معك قريباً.")}</p>
+786:                       <label className="text-sm text-gray-400">{t("الاسم الكامل")}</label>
+790:                       <label className="text-sm text-gray-400">{t("رقم الهاتف / الواتساب")}</label>
+796:                     <label className="text-sm text-gray-400">{t("الانتماء أو المؤسسة (اختياري)")}</label>
+802:                      <label className="text-sm text-gray-400">{t("نوع المشروع")}</label>
+804:                        <option value="" className="bg-dz-darker">{t("اختر نوع المشروع...")}</option>
+805:                        <option value="research" className="bg-dz-darker">{t("دراسة رأي عام")}</option>
+806:                        <option value="communication" className="bg-dz-darker">{t("حملة تواصلية ومناصرة")}</option>
+807:                        <option value="market" className="bg-dz-darker">{t("أبحاث سوق وسلوك مستهلك")}</option>
+808:                        <option value="saas" className="bg-dz-darker text-dz-gold font-bold">{t("عرض تجريبي للمنصة السحابية (SaaS Demo)")}</option>
+809:                        <option value="odoo" className="bg-dz-darker text-dz-green font-bold">{t("تنفيذ وتطوير أنظمة Odoo")}</option>
+810:                        <option value="surveys" className="bg-dz-darker">{t("تصميم وتنفيذ الاستبيانات")}</option>
+811:                        <option value="other_comm" className="bg-dz-darker">{t("أخرى")}</option>
+815:                      <label className="text-sm text-gray-400">{t("النطاق الجغرافي (الولاية/البلدية)")}</label>
+821:                      <label className="text-sm text-gray-400">{t("نطاق الميزانية التقديرية (دينار جزائري)")}</label>
+823:                        <option value="" className="bg-dz-darker">{t("اختر الميزانية...")}</option>
+824:                        <option value="150k-500k" className="bg-dz-darker">{t("150,000 - 500,000 دج")}</option>
+825:                        <option value="500k-1m" className="bg-dz-darker">{t("500,000 - 1,000,000 دج")}</option>
+826:                        <option value="1m+" className="bg-dz-darker">{t("+ 1,000,000 دج")}</option>
+831:                    <span>{t("طلب استشارة سرية")}</span>
+835:                  <p className="text-xs text-center text-gray-500 mt-6">{t("يخضع هذا النموذج لسرية العميل والخصوصية التامة.")}</p>
+851:                  <span>{t("دزاير أناليتيكا")}</span>
+868:              <a href="/brand-assets.html" target="_blank" className="hover:text-dz-gold transition-colors font-bold text-white">{t("الهوية البصرية (شعارات)")}</a>
+869:              <a href="#" onClick={(e) => e.preventDefault()} className="hover:text-white transition-colors">{t("ميثاق الأخلاقيات")}</a>
+870:              <a href="https://www.arpce.dz/ar/pub/c7e6n6" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">{t("سياسة الخصوصية (قانون 18-07)")}</a>
+871:              <a href="#" onClick={(e) => { e.preventDefault(); alert(t("شروط الخدمة") + " - " + t("المنصة قيد التطوير التجريبي ولا تتحمل أي مسؤولية قانونية في هذه المرحلة.")); }} className="hover:text-white transition-colors">{t("شروط الخدمة")}</a>
+876:            <span>{t("البيانات قوة، فاستخدمها بحكمة.")}</span>
