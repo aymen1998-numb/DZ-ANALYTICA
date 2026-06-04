@@ -1,33 +1,61 @@
-# دزاير أناليتيكا (DZ Analytica)
+# DZ Analytica (دزاير أناليتيكا)
 
-هذا هو الكود المصدري لمنصة دزاير أناليتيكا.
+DZ Analytica is the premier Algerian platform for psychometric data analytics, public opinion research, and customized B2B market entry intelligence. The platform combines advanced data science with psychological modeling to translate public and market dynamics into high-performance communication strategies and business solutions.
 
-## كيفية الاستضافة ونشر الموقع (بدون علامة الذكاء الاصطناعي)
+---
 
-لرفع هذا الموقع على رابط خاص بك (مثل www.yourdomain.com) واختفاء بيئة التطوير الخاصة بالذكاء الاصطناعي بالكامل، أفضل المنصات المجانية هي **Vercel** أو **Netlify**.
+## 🌟 Key Features
 
-### الخطوة 1: تنزيل ملفات المشروع
-1. من أعلى الشاشة في هذه المنصة (Google AI Studio)، ابحث عن زر التصدير (Export project) أو (Download as ZIP) بصيغة ملف مضغوط.
-2. قم بفك الضغط عن هذا الملف على حاسوبك الشخصي.
+* **Market Intelligence & Public Opinion Research**: Deep analytical insights mapping B2B/B2C trends and consumer preferences across 28 million adults in Algeria.
+* **Psychometric Compass (DZ Compass)**: Interactive psychometric profiling tool mapping cultural preferences and audience behaviors.
+* **Digital Command Center (SaaS)**: A sovereign cloud dashboard for audience management, field coordination, and precision targeting.
+* **Odoo ERP Integration**: Complete ERP configurations and customized B2B automation tools tailored for Algerian enterprises.
+* **Sovereign Local Hosting**: Security architecture fully compliant with Algerian Law 18-07 regarding personal data protection.
 
-### الخطوة 2: إضافة الشعارات (اللوجوهات) الخاصة بك
-لتظهر الشعارات التي أرسلتها في قسم (نتعاون مع)، قم بنسخ صور الشعارات التي لديك وإضافتها داخل مجلد `public` في المشروع مع تسميتها بالضبط كما يلي:
-- شعار الديوان الوطني للإحصائيات: يكون اسمه `ons-logo.png`
-- شعار السلطة المستقلة: يكون اسمه `anie-logo.png`
-- شعار CREAD: يكون اسمه `cread-logo.png`
+---
 
-### الخطوة 3: استقبال بيانات الاستبيان ونموذج الاتصال على بريدك
-قمت ببرمجة النظام الداخلي ليقوم بإرسال بيانات المستخدمين مباشرة إلى بريدك الإلكتروني عن طريق خدمة **Web3Forms** المجانية.
-لتفعيل الخدمة:
-1. اذهب إلى موقع [Web3forms](https://web3forms.com/) واضغط على "Create your Access Key".
-2. أدخل بريدك الإلكتروني الذي تريد استقبال البيانات عليه (يصلك مفتاح سري على البريد).
-3. افتح ملف `src/App.tsx` (لنموذج الاتصال أسفل الصفحة) وابحث عن عبارة `YOUR_WEB3FORMS_KEY` واستبدلها بالمفتاح.
-4. افتح ملف `src/components/DZCompassQuiz.tsx` (للاستبيان) وابحث عن عبارة `YOUR_WEB3FORMS_KEY` واستبدلها بنفس المفتاح.
+## 🛠️ Technology Stack
 
-### الخطوة 4: النشر على Vercel
-1. قم بإنشاء حساب في موقع [Vercel](https://vercel.com/) (يفضل باستخدام حساب GitHub).
-2. من لوحة تحكم Vercel، اضغط على **Add New...** ثم **Project**.
-3. يمكنك رفع المجلد الذي قمت بتنزيله، أو ربطه بمستودع Github الخاص بك.
-4. سيتعرف Vercel تلقائياً على أن المشروع React/Vite.
-5. اضغط على **Deploy**.
-6. بعد دقائق، سيعطيك Vercel رابطاً مجانياً للمنصة، ويمكنك بعدها التوجه إلى (Settings > Domains) لإضافة النطاق المدفوع (مثلا .dz أو .com).
+* **Frontend**: React 19 (TypeScript), Vite
+* **Styling**: Tailwind CSS
+* **Animations**: Motion (formerly Framer Motion)
+* **Icons**: Lucide React
+* **Metadata & SEO**: React Helmet Async
+
+---
+
+## 🚀 Getting Started
+
+To run the project locally on your machine, follow these instructions:
+
+### Prerequisites
+Make sure you have [Node.js](https://nodejs.org) (v18+ recommended) installed.
+
+### Installation
+
+1. Clone the repository and navigate to the project directory:
+   ```bash
+   cd DZ-Analytica
+   ```
+
+2. Install the dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the local development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Build the application for production:
+   ```bash
+   npm run build
+   ```
+
+---
+
+## 🔒 License & Ethics
+DZ Analytica is built with data integrity at its core. We process all data with strict adherence to participant consent and user privacy regulations. 
+
+*Confidential & Proprietary. All Rights Reserved.*
