@@ -9,12 +9,14 @@ import { DZCompassQuiz } from './components/DZCompassQuiz';
 import { PitchDeck } from './components/PitchDeck';
 import { useTranslation, Language } from './translations';
 import { EthicsModal } from './components/EthicsModal';
+import { StatsHub } from './components/StatsHub';
 
 const navLinks = [
   { name: 'الرئيسية', href: '#home' },
   { name: 'من نحن', href: '#about' },
   { name: 'خدماتنا', href: '#services' },
   { name: 'دراسات حالة', href: '#case-studies' },
+  { name: 'المرصد', href: '#stats-hub' },
   { name: 'اتصل بنا', href: '#contact' },
 ];
 
@@ -55,6 +57,7 @@ export default function App() {
     <div className={`min-h-screen bg-dz-darker text-white overflow-x-hidden selection:bg-dz-gold selection:text-dz-darker ${isRtl ? 'font-sans' : 'font-sans-inter'}`} dir={isRtl ? 'rtl' : 'ltr'}>
       <Helmet>
         <html lang={lang} dir={isRtl ? 'rtl' : 'ltr'} />
+        <link rel="canonical" href="https://www.dzanalytica.com/" />
         <title>{t("دزاير أناليتيكا")} | {t("تحليل السوق، تنفيذ أنظمة Odoo، والبيانات الذكية في الجزائر")}</title>
         <meta name="description" content={t("دزاير أناليتيكا هي خيارك الأول لفهم السوق الجزائري، الدراسات السلوكية، وتنفيذ أنظمة Odoo (ERP) للشركات.")} />
         <meta name="keywords" content={t("دراسات السوق الجزائرية, تطوير Odoo الجزائر, تكامل Odoo ERP, توسع B2B في الجزائر, تحليلات البيانات الجزائر, SaaS, Big Data, دزاير أناليتيكا")} />
@@ -671,6 +674,8 @@ export default function App() {
             </motion.div>
           </div>
         </section>
+
+        <StatsHub />
 
         {/* Partners Section */}
         <section className="py-16 bg-dz-darker border-y border-white/5 overflow-hidden">
