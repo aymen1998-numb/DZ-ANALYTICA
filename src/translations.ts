@@ -172,7 +172,16 @@ export const translations = {
     "أدخل بريدك الإلكتروني": "Enter your email",
     "اشترك الآن": "Subscribe Now",
     "جاري الإرسال...": "Submitting...",
-    "تم الاشتراك بنجاح": "Successfully Subscribed"
+    "تم الاشتراك بنجاح": "Successfully Subscribed",
+    "شعار ONS": "ONS logo - National Office of Statistics Algeria",
+    "شعار CREAD": "CREAD logo - Applied Economics Research Center Algeria",
+    "شعار ANIE": "ANIE logo - Independent National Authority of Elections Algeria",
+    "ما هي الخدمات التي تقدمها دزاير أناليتيكا في الجزائر؟": "What services does DZ Analytica provide in Algeria?",
+    "تقدم دزاير أناليتيكا دراسات واستشارات السوق، تحليل بيانات الجمهور، أبحاث الرأي العام السلوكي، وتنفيذ وتطوير أنظمة Odoo ERP السحابية لمساعدة الشركات والمستثمرين في الجزائر.": "DZ Analytica provides market research, consumer behavior studies, B2B data analytics, and cloud Odoo ERP implementation/development for enterprises and investors in Algeria.",
+    "هل توفر دزاير أناليتيكا خدمات تكامل وتطوير Odoo ERP للشركات الجزائرية؟": "Does DZ Analytica offer Odoo ERP integration and development in Algeria?",
+    "نعم، نحن متخصصون في تخصيص وتنفيذ نظام Odoo لإدارة الموارد (ERP) في الجزائر، بما في ذلك إدارة المبيعات، المحاسبة المتوافقة مع النظام الجبائي الجزائري، المخازن، والربط السحابي الآمن.": "Yes, we specialize in customizing and deploying Odoo ERP in Algeria, including sales management, accounting compliant with Algerian tax laws, inventory, and secure cloud hosting.",
+    "كيف تساعد المنصة في توسيع نطاق الأعمال B2B ودراسة السوق الجزائري؟": "How does the platform support B2B market entry and expansion in Algeria?",
+    "نستخدم خوارزميات الذكاء الاصطناعي والنمذجة التنبؤية لربط الشركات بقواعد بيانات دقيقة للمشترين وصناع القرار الشرائي (B2B qualified leads) in various Algerian wilayas.": "We leverage predictive modeling and AI algorithms to connect businesses with high-intent decision makers and qualified B2B leads in various Algerian wilayas."
   },
   "fr": {
     "دزاير": "DZ ",
@@ -346,7 +355,16 @@ export const translations = {
     "أدخل بريدك الإلكتروني": "Entrez votre adresse e-mail",
     "اشترك الآن": "S'abonner",
     "جاري الإرسال...": "Envoi...",
-    "تم الاشتراك بنجاح": "Abonné avec succès"
+    "تم الاشتراك بنجاح": "Abonné avec succès",
+    "شعار ONS": "Logo ONS - Office National des Statistiques Algérie",
+    "شعار CREAD": "Logo CREAD - Centre de Recherche en Économie Appliquée Algérie",
+    "شعار ANIE": "Logo ANIE - Autorité Nationale Indépendante des Élections Algérie",
+    "ما هي الخدمات التي تقدمها دزاير أناليتيكا في الجزائر؟": "Quels services propose DZ Analytica en Algérie ?",
+    "تقدم دزاير أناليتيكا دراسات واستشارات السوق، تحليل بيانات الجمهور، أبحاث الرأي العام السلوكي، وتنفيذ وتطوير أنظمة Odoo ERP السحابية لمساعدة الشركات والمستثمرين في الجزائر.": "DZ Analytica fournit des études de marché, des analyses de comportement des consommateurs, de la data B2B et l'intégration d'Odoo ERP en Algérie pour les entreprises.",
+    "هل توفر دزاير أناليتيكا خدمات تكامل وتطوير Odoo ERP للشركات الجزائرية؟": "Proposez-vous l'intégration et l'implémentation d'Odoo ERP en Algérie ?",
+    "نعم، نحن متخصصون في تخصيص وتنفيذ نظام Odoo لإدارة الموارد (ERP) في الجزائر، بما في ذلك إدارة المبيعات، المحاسبة المتوافقة مع النظام الجبائي الجزائري، المخازن، والربط السحابي الآمن.": "Oui, nous sommes spécialisés dans le déploiement et la personnalisation d'Odoo ERP en Algérie, y compris la gestion commerciale, la comptabilité fiscale algérienne, les stocks et l'hébergement cloud sécurisé.",
+    "كيف تساعد المنصة في توسيع نطاق الأعمال B2B ودراسة السوق الجزائري؟": "Comment DZ Analytica aide-t-elle à l'expansion B2B et à l'étude de marché en Algérie ?",
+    "نستخدم خوارزميات الذكاء الاصطناعي والنمذجة التنبؤية لربط الشركات بقواعد بيانات دقيقة للمشترين وصناع القرار الشرائي (B2B qualified leads) in various Algerian wilayas.": "Nous utilisons des algorithmes prédictifs et de l'IA pour connecter les entreprises à des bases de données ciblées de décideurs et de prospects B2B qualifiés in various Algerian wilayas."
   }
 };
 

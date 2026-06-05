@@ -58,6 +58,10 @@ export default function App() {
       <Helmet>
         <html lang={lang} dir={isRtl ? 'rtl' : 'ltr'} />
         <link rel="canonical" href="https://www.dzanalytica.com/" />
+        <link rel="alternate" hreflang="ar" href="https://www.dzanalytica.com/?lang=ar" />
+        <link rel="alternate" hreflang="en" href="https://www.dzanalytica.com/?lang=en" />
+        <link rel="alternate" hreflang="fr" href="https://www.dzanalytica.com/?lang=fr" />
+        <link rel="alternate" hreflang="x-default" href="https://www.dzanalytica.com/" />
         <title>{t("دزاير أناليتيكا")} | {t("تحليل السوق، تنفيذ أنظمة Odoo، والبيانات الذكية في الجزائر")}</title>
         <meta name="description" content={t("دزاير أناليتيكا هي خيارك الأول لفهم السوق الجزائري، الدراسات السلوكية، وتنفيذ أنظمة Odoo (ERP) للشركات.")} />
         <meta name="keywords" content={t("دراسات السوق الجزائرية, تطوير Odoo الجزائر, تكامل Odoo ERP, توسع B2B في الجزائر, تحليلات البيانات الجزائر, SaaS, Big Data, دزاير أناليتيكا")} />
@@ -68,8 +72,8 @@ export default function App() {
               "@type": "Organization",
               "name": "DZ Analytica",
               "alternateName": "DZ Analytica",
-              "url": "https://dz-analytica.vercel.app",
-              "logo": "https://dz-analytica.vercel.app/brand-assets.html",
+              "url": "https://www.dzanalytica.com",
+              "logo": "https://www.dzanalytica.com/favicon.svg",
               "contactPoint": {
                 "@type": "ContactPoint",
                 "email": "dzair.analytica@gmail.com",
@@ -107,7 +111,7 @@ export default function App() {
                     "itemOffered": {
                       "@type": "Service",
                       "name": "Market Intelligence & Research",
-                      "description": t("دراسات السوق والرأي العام") + " - Deep insights into Algerian consumer behavior, market trends, and B2B opportunities."
+                      "description": "${t("دراسات السوق والرأي العام")} - Deep insights into Algerian consumer behavior, market trends, and B2B opportunities."
                     }
                   },
                   {
@@ -115,7 +119,7 @@ export default function App() {
                     "itemOffered": {
                       "@type": "Service",
                       "name": "Cloud Data Management (SaaS)",
-                      "description": t("إدارة البيانات السحابية (SaaS)") + " - Cloud platform for data management and scalable B2B/B2C communications in Algeria."
+                      "description": "${t("إدارة البيانات السحابية (SaaS)")} - Cloud platform for data management and scalable B2B/B2C communications in Algeria."
                     }
                   },
                   {
@@ -123,11 +127,45 @@ export default function App() {
                     "itemOffered": {
                       "@type": "Service",
                       "name": "Odoo Implementation & ERP",
-                      "description": t("تنفيذ وتطوير أنظمة Odoo") + " - Customized deployment in Algeria."
+                      "description": "${t("تنفيذ وتطوير أنظمة Odoo")} - Customized deployment in Algeria."
                     }
                   }
                 ]
               }
+            }
+          `}
+        </script>
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "${t("ما هي الخدمات التي تقدمها دزاير أناليتيكا في الجزائر؟")}",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "${t("تقدم دزاير أناليتيكا دراسات واستشارات السوق، تحليل بيانات الجمهور، أبحاث الرأي العام السلوكي، وتنفيذ وتطوير أنظمة Odoo ERP السحابية لمساعدة الشركات والمستثمرين في الجزائر.")}"
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "${t("هل توفر دزاير أناليتيكا خدمات تكامل وتطوير Odoo ERP للشركات الجزائرية؟")}",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "${t("نعم، نحن متخصصون في تخصيص وتنفيذ نظام Odoo لإدارة الموارد (ERP) في الجزائر، بما في ذلك إدارة المبيعات، المحاسبة المتوافقة مع النظام الجبائي الجزائري، المخازن، والربط السحابي الآمن.")}"
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "${t("كيف تساعد المنصة في توسيع نطاق الأعمال B2B ودراسة السوق الجزائري؟")}",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "${t("نستخدم خوارزميات الذكاء الاصطناعي والنمذجة التنبؤية لربط الشركات بقواعد بيانات دقيقة للمشترين وصناع القرار الشرائي (B2B qualified leads) في مختلف الولايات الجزائرية.")}"
+                  }
+                }
+              ]
             }
           `}
         </script>
@@ -685,17 +723,17 @@ export default function App() {
             </div>
             <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 transition-all duration-500">
               <div className="flex flex-col items-center gap-3 group">
-                <img src="/ons-logo.webp" alt="ONS" className="h-20 md:h-24 object-contain mx-auto invert opacity-70 group-hover:opacity-100 transition-all cursor-pointer" />
+                <img src="/ons-logo.webp" alt={t("شعار ONS")} title={t("شعار ONS")} className="h-20 md:h-24 object-contain mx-auto invert opacity-70 group-hover:opacity-100 transition-all cursor-pointer" />
                 <span className="text-xs text-gray-400 font-bold">{t("الديوان الوطني للإحصائيات (ONS)")}</span>
               </div>
               
               <div className="flex flex-col items-center gap-3 group">
-                <img src="/cread-logo.webp" alt="CREAD" className="h-[88px] md:h-28 object-contain mx-auto opacity-70 group-hover:opacity-100 transition-all cursor-pointer grayscale group-hover:grayscale-0 bg-white/10 rounded-xl p-2" />
+                <img src="/cread-logo.webp" alt={t("شعار CREAD")} title={t("شعار CREAD")} className="h-[88px] md:h-28 object-contain mx-auto opacity-70 group-hover:opacity-100 transition-all cursor-pointer grayscale group-hover:grayscale-0 bg-white/10 rounded-xl p-2" />
                 <span className="text-xs text-gray-400 font-bold">{t("مركز البحث في الاقتصاد المطبق (CREAD)")}</span>
               </div>
 
               <div className="flex flex-col items-center gap-3 group">
-                <img src="/anie-logo.webp" alt="ANIE" className="h-20 md:h-24 object-contain mx-auto opacity-70 group-hover:opacity-100 transition-all cursor-pointer" />
+                <img src="/anie-logo.webp" alt={t("شعار ANIE")} title={t("شعار ANIE")} className="h-20 md:h-24 object-contain mx-auto opacity-70 group-hover:opacity-100 transition-all cursor-pointer" />
                 <span className="text-xs text-gray-400 font-bold">{t("السلطة الوطنية المستقلة للانتخابات (ANIE)")}</span>
               </div>
             </div>
