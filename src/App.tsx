@@ -217,12 +217,12 @@ export default function App() {
                   ))}
                 </div>
               </div>
-              <button 
-                onClick={(e) => { e.preventDefault(); setIsQuizOpen(true); }}
-                className="bg-dz-green hover:bg-dz-green-light text-white px-6 py-2 rounded-full font-bold transition-all duration-300 shadow-[0_0_15px_rgba(0,98,51,0.5)] hover:shadow-[0_0_25px_rgba(0,180,90,0.6)] !mr-4 cursor-pointer"
+              <a 
+                href="https://quiz.dzanalytica.com"
+                className="bg-dz-green hover:bg-dz-green-light text-white px-6 py-2 rounded-full font-bold transition-all duration-300 shadow-[0_0_15px_rgba(0,98,51,0.5)] hover:shadow-[0_0_25px_rgba(0,180,90,0.6)] !mr-4 cursor-pointer inline-block text-center"
               >
                 {t("الخريطة السياسية")}
-              </button>
+              </a>
             </div>
 
             <div className="md:hidden flex items-center">
@@ -278,12 +278,13 @@ export default function App() {
                     {t(link.name)}
                   </a>
                 ))}
-                <button
-                  onClick={(e) => { e.preventDefault(); setIsMobileMenuOpen(false); setIsQuizOpen(true); }}
-                  className="mt-4 text-center bg-transparent border-2 border-dz-green text-dz-green px-4 py-3 rounded-md font-bold w-full cursor-pointer"
+                <a
+                  href="https://quiz.dzanalytica.com"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="mt-4 block text-center bg-transparent border-2 border-dz-green text-dz-green px-4 py-3 rounded-md font-bold w-full cursor-pointer"
                 >
                   {t("الخريطة السياسية")}
-                </button>
+                </a>
               </div>
             </motion.div>
           )}
@@ -752,15 +753,15 @@ export default function App() {
                 {t("البوصلة السايكومترية الجزائرية (DZ Compass) هو اختبار مجاني ومجهول الهوية بالكامل. في 10 أسئلة فقط، اكتشف نمط شخصيتك وتفضيلاتك الثقافية.")}
               </p>
               
-              <motion.button 
+              <motion.a 
+                href="https://quiz.dzanalytica.com"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-dz-green to-dz-green-dark hover:from-dz-green-light hover:to-dz-green text-white px-10 py-5 rounded-2xl font-bold text-2xl shadow-[0_0_30px_rgba(0,98,51,0.6)] hover:shadow-[0_0_50px_rgba(0,180,90,0.8)] transition-all flex items-center justify-center gap-4 mx-auto w-full md:w-auto cursor-pointer"
-                onClick={() => setIsQuizOpen(true)}
+                className="bg-gradient-to-r from-dz-green to-dz-green-dark hover:from-dz-green-light hover:to-dz-green text-white px-10 py-5 rounded-2xl font-bold text-2xl shadow-[0_0_30px_rgba(0,98,51,0.6)] hover:shadow-[0_0_50px_rgba(0,180,90,0.8)] transition-all flex items-center justify-center gap-4 mx-auto w-full md:w-auto cursor-pointer text-center"
               >
                 <Brain className="h-8 w-8 animate-pulse" />
                 <span dir={lang === "ar" ? "rtl" : "ltr"}>{t("اكتشف شخصيتك")}</span>
-              </motion.button>
+              </motion.a>
               
               <div className="mt-8 flex items-center justify-center gap-2 text-sm text-gray-500">
                 <ShieldCheck className="h-4 w-4" />
