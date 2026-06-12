@@ -186,7 +186,24 @@ export const translations = {
     "الذكاء الاصطناعي والتوقع": "AI & Predictive Analytics",
     "الحلول البرمجية والـ ERP": "Software Solutions & ERP",
     "رسم الخرائط الإدراكية ومحاكاة التفاعل الاجتماعي (MiroFish)": "Cognitive Mapping & Social Swarm Simulation (MiroFish)",
-    "نمذجة الخرائط الإدراكية لآلاف الحسابات الافتراضية ومحاكاة تفاعلاتهم، نقاشاتهم، والعدوى الاجتماعية بينهم لتوقع انتشار الأفكار وسلوك المستهلك.": "Modeling cognitive maps for thousands of virtual profiles, simulating their interactions, debates, and social contagion to predict product adoption and viral propagation."
+    "نمذجة الخرائط الإدراكية لآلاف الحسابات الافتراضية ومحاكاة تفاعلاتهم، نقاشاتهم، والعدوى الاجتماعية بينهم لتوقع انتشار الأفكار وسلوك المستهلك.": "Modeling cognitive maps for thousands of virtual profiles, simulating their interactions, debates, and social contagion to predict product adoption and viral propagation.",
+    "مركز القيادة الرقمي ومحاكاة MiroFish": "Digital Command Center & MiroFish Simulation",
+    "مركز القيادة الرقمي لمشاريعك التواصلية الميدانية": "Digital Command Center for Your Field Communication Projects",
+    "المدمج بالكامل مع محاكاة الرأي العام والعدوى الاجتماعية (MiroFish).": "Fully integrated with public opinion and social contagion simulation (MiroFish).",
+    "نقدم أول منصة سحابية جزائرية تدمج بين القيادة الرقمية الميدانية ومحاكاة الرأي العام وسلوك المستهلك بالاعتماد على الذكاء الاصطناعي (MiroFish). تتيح لك المنصة نمذجة آلاف الحسابات والبروفايلات الافتراضية، ورسم خرائط إدراكية لشخصياتهم، ومحاكاة كيفية تفاعلهم وانتشار الأفكار والعدوى الاجتماعية بينهم لتوجيه حملاتك الميدانية بدقة متناهية.": "We offer the first Algerian cloud platform integrating digital field command with public opinion and consumer behavior simulation powered by AI (MiroFish). The platform allows you to model thousands of virtual profiles, draw cognitive maps of their personalities, and simulate their interactions and social contagion to direct your field campaigns with absolute precision.",
+    "تُمكنك المنصة من اختبار القرارات، الإعلانات، والسياسات قبل إطلاقها ميدانياً. بنقرة واحدة، يمكنك إطلاق محاكاة تفاعلية كاملة بين الحسابات الافتراضية ومراقبة كيف تتطور النقاشات وتتحول الآراء وتتأثر الفئات المختلفة بلحظات، لتحديد الاستراتيجية الأنسب وتوجيه الميدان بكل أمان.": "The platform enables you to test decisions, advertisements, and policies before field deployment. With a single click, launch a complete interactive simulation among virtual accounts, monitor real-time debate evolution, sentiment shifts, and key segment reactions, to secure the optimal strategy and guide the field safely.",
+    "الخرائط الإدراكية السيكومترية": "Psychometric Cognitive Mapping",
+    "رسم خرائط ذهنية إدراكية مفصلة للبروفايلات الافتراضية وتحديد قيمها وتوجهاتها الأساسية.": "Mapping detailed cognitive mind maps for virtual profiles, identifying their core values and orientations.",
+    "محاكاة النقاش والعدوى الاجتماعية": "Debate & Social Contagion Simulation",
+    "نمذجة انتشار الأفكار، الإشاعات، والمشاعر الاجتماعية بين آلاف الوكلاء في شبكة تواصل افتراضية.": "Modeling the spread of ideas, rumors, and social sentiments among thousands of agents in a virtual social network.",
+    "التوجيه التنبؤي الاستراتيجي": "Predictive Strategic Guidance",
+    "تحديد الرسائل والزوايا الإقناعية الأكثر تأثيراً في الفئات المستهدفة بناءً على نتائج المحاكاة.": "Identifying the most persuasive messages and angles for target segments based on simulation results.",
+    "بيئة رملية سيادية وآمنة": "Sovereign & Secure Sandbox",
+    "اختبر سيناريوهات \"ماذا لو\" (What-if) الحساسة في بيئة سحابية جزائرية محلية آمنة ومتوافقة 100%.": "Test sensitive \"What-if\" scenarios in a secure local Algerian cloud environment, 100% compliant.",
+    "احجز عرضاً تجريبياً لمحاكاة MiroFish": "Book a MiroFish Simulation Demo",
+    "لوحة محاكاة الرأي العام (MiroFish)": "Public Opinion Simulation Dashboard (MiroFish)",
+    "السيناريو: ردود الفعل على إطلاق منتج وطني جديد": "Scenario: Reactions to launching a new national product",
+    "محاكاة نشطة": "Active Simulation"
   },
   "fr": {
     "دزاير": "DZ ",
@@ -374,7 +391,24 @@ export const translations = {
     "الذكاء الاصطناعي والتوقع": "IA & Analyses Prédictives",
     "الحلول البرمجية والـ ERP": "Solutions Logicielles & ERP",
     "رسم الخرائط الإدراكية ومحاكاة التفاعل الاجتماعي (MiroFish)": "Cartographie Cognitive & Simulation de Foule (MiroFish)",
-    "نمذجة الخرائط الإدراكية لآلاف الحسابات الافتراضية ومحاكاة تفاعلاتهم، نقاشاتهم، والعدوى الاجتماعية بينهم لتوقع انتشار الأفكار وسلوك المستهلك.": "Modélisation des cartes cognitives de milliers de profils virtuels, simulant leurs interactions, débats et contagion sociale pour prédire la propagation d'idées."
+    "نمذجة الخرائط الإدراكية لآلاف الحسابات الافتراضية ومحاكاة تفاعلاتهم، نقاشاتهم، والعدوى الاجتماعية بينهم لتوقع انتشار الأفكار وسلوك المستهلك.": "Modélisation des cartes cognitives de milliers de profils virtuels, simulant leurs interactions, débats et contagion sociale pour prédire la propagation d'idées.",
+    "مركز القيادة الرقمي ومحاكاة MiroFish": "Centre de Commandement Numérique & Simulation MiroFish",
+    "مركز القيادة الرقمي لمشاريعك التواصلية الميدانية": "Centre de commandement numérique pour vos projets de communication de terrain",
+    "المدمج بالكامل مع محاكاة الرأي العام والعدوى الاجتماعية (MiroFish).": "Entièrement intégré à la simulation de l'opinion publique et de la contagion sociale (MiroFish).",
+    "نقدم أول منصة سحابية جزائرية تدمج بين القيادة الرقمية الميدانية ومحاكاة الرأي العام وسلوك المستهلك بالاعتماد على الذكاء الاصطناعي (MiroFish). تتيح لك المنصة نمذجة آلاف الحسابات والبروفايلات الافتراضية، ورسم خرائط إدراكية لشخصياتهم، ومحاكاة كيفية تفاعلهم وانتشار الأفكار والعدوى الاجتماعية بينهم لتوجيه حملاتك الميدانية بدقة متناهية.": "Nous proposons la première plateforme cloud algérienne combinant la gestion de campagne sur le terrain et la simulation de l'opinion publique et du comportement des consommateurs via l'IA (MiroFish). Modélisez des milliers de profils virtuels, cartographiez leur cognition, et simulez leurs interactions et la contagion sociale pour orienter vos campagnes de terrain avec une précision absolue.",
+    "تُمكنك المنصة من اختبار القرارات، الإعلانات، والسياسات قبل إطلاقها ميدانياً. بنقرة واحدة، يمكنك إطلاق محاكاة تفاعلية كاملة بين الحسابات الافتراضية ومراقبة كيف تتطور النقاشات وتتحول الآراء وتتأثر الفئات المختلفة بلحظات، لتحديد الاستراتيجية الأنسب وتوجيه الميدان بكل أمان.": "La plateforme vous permet de tester vos décisions, publicités et politiques avant leur déploiement sur le terrain. En un seul clic, lancez une simulation interactive complète entre comptes virtuels, suivez l'évolution des débats, les changements d'opinion et les réactions des différents segments pour valider la meilleure stratégie en toute sécurité.",
+    "الخرائط الإدراكية السيكومترية": "Cartographie Cognitive Psychométrique",
+    "رسم خرائط ذهنية إدراكية مفصلة للبروفايلات الافتراضية وتحديد قيمها وتوجهاتها الأساسية.": "Cartographie mentale cognitive détaillée des profils virtuels, identifiant leurs valeurs fondamentales et leurs orientations.",
+    "محاكاة النقاش والعدوى الاجتماعية": "Simulation de Débats & Contagion Sociale",
+    "نمذجة انتشار الأفكار، الإشاعات، والمشاعر الاجتماعية بين آلاف الوكلاء في شبكة تواصل افتراضية.": "Modélisation de la propagation d'idées, de rumeurs et de sentiments sociaux parmi des milliers d'agents dans un réseau social virtuel.",
+    "التوجيه التنبؤي الاستراتيجي": "Guidage Stratégique Prédictif",
+    "تحديد الرسائل والزوايا الإقناعية الأكثر تأثيراً في الفئات المستهدفة بناءً على نتائج المحاكاة.": "Identification des messages et des angles de persuasion les plus percutants pour les segments cibles sur la base des résultats de la simulation.",
+    "بيئة رملية سيادية وآمنة": "Bac à Sable Souverain & Sécurisé",
+    "اختبر سيناريوهات \"ماذا لو\" (What-if) الحساسة في بيئة سحابية جزائرية محلية آمنة ومتوافقة 100%.": "Testez des scénarios sensibles de type \"What-if\" dans un environnement cloud algérien local sécurisé, 100% conforme.",
+    "احجز عرضاً تجريبياً لمحاكاة MiroFish": "Réserver une démo de simulation MiroFish",
+    "لوحة محاكاة الرأي العام (MiroFish)": "Tableau de bord de simulation de l'opinion publique (MiroFish)",
+    "السيناريو: ردود الفعل على إطلاق منتج وطني جديد": "Scénario : Réactions au lancement d'un nouveau produit national",
+    "محاكاة نشطة": "Simulation active"
   }
 };
 

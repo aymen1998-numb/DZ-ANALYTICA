@@ -555,29 +555,29 @@ export default function App() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
               >
-<div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-dz-gold mb-6">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-dz-gold mb-6">
                   <Database className="h-4 w-4" />
-                  <span className="text-sm font-semibold tracking-wider">{t("برمجيات كخدمة (SaaS)")}</span>
+                  <span className="text-sm font-semibold tracking-wider">{t("مركز القيادة الرقمي ومحاكاة MiroFish")}</span>
                 </div>
                 <h2 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-                  {t("مركز القيادة الرقمي")} <br/>
+                  {t("مركز القيادة الرقمي لمشاريعك التواصلية الميدانية")} <br/>
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-dz-gold to-dz-gold-light">
-                    {t("لمشاريعك التواصلية الميدانية.")}
+                    {t("المدمج بالكامل مع محاكاة الرأي العام والعدوى الاجتماعية (MiroFish).")}
                   </span>
                 </h2>
                 <p className="text-gray-400 text-lg mb-4 leading-relaxed">
-                  {t("على غرار المنصات العالمية (مثل Civis Analytics)، نقدم أول منصة سحابية جزائرية لإدارة وتحليل بيانات الجمهور. منصتنا تجمع بياناتك المشتتة، وتنقلها عبر خوارزميات الذكاء الاصطناعي وتحولها إلى رؤى وقوائم استهداف دقيقة لفريقك.")}
+                  {t("نقدم أول منصة سحابية جزائرية تدمج بين القيادة الرقمية الميدانية ومحاكاة الرأي العام وسلوك المستهلك بالاعتماد على الذكاء الاصطناعي (MiroFish). تتيح لك المنصة نمذجة آلاف الحسابات والبروفايلات الافتراضية، ورسم خرائط إدراكية لشخصياتهم، ومحاكاة كيفية تفاعلهم وانتشار الأفكار والعدوى الاجتماعية بينهم لتوجيه حملاتك الميدانية بدقة متناهية.")}
                 </p>
                 <p className="text-gray-400 text-lg mb-8 leading-relaxed">
-                  {t("تُمكنك المنصة من الاستغناء تماماً عن الإدارة التقليدية المعقدة؛ فبنقرة واحدة، يمكنك بناء قوائم مفصّلة للجمهور المستهدف، وتوجيه فرقك إلى المناطق الأكثر أهمية، ومراقبة الأداء لحظة بلحظة ضمن بيئة سحابية مؤمنة.")}
+                  {t("تُمكنك المنصة من اختبار القرارات، الإعلانات، والسياسات قبل إطلاقها ميدانياً. بنقرة واحدة، يمكنك إطلاق محاكاة تفاعلية كاملة بين الحسابات الافتراضية ومراقبة كيف تتطور النقاشات وتتحول الآراء وتتأثر الفئات المختلفة بلحظات، لتحديد الاستراتيجية الأنسب وتوجيه الميدان بكل أمان.")}
                 </p>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
                   {[
-                    { icon: Layers, title: t("توحيد البيانات (Identity Resolution)"), desc: t("دمج قواعد البيانات المفتوحة، الاستبيانات، والتفاعلات في منصة مركزية موحدة.") },
-                    { icon: LineChart, title: t("النمذجة التنبؤية (Predictive Modeling)"), desc: t("توقع السلوكيات والانطباعات، تحديد التوجهات، ودراسة تفاعل الجمهور مع مبادراتك.") },
-                    { icon: Target, title: t("التوجيه الميداني (Activation)"), desc: t("إنشاء خرائط تحرك وتوجيه للمناضلين لاستهداف الأحياء الأكثر أهمية.") },
-                    { icon: ShieldCheck, title: t("استضافة سيادية محليّة"), desc: t("بنية أمنية متوافقة تماماً مع قانون 18-07 لحماية البيانات الشخصية.") }
+                    { icon: Layers, title: t("الخرائط الإدراكية السيكومترية"), desc: t("رسم خرائط ذهنية إدراكية مفصلة للبروفايلات الافتراضية وتحديد قيمها وتوجهاتها الأساسية.") },
+                    { icon: BrainCircuit, title: t("محاكاة النقاش والعدوى الاجتماعية"), desc: t("نمذجة انتشار الأفكار، الإشاعات، والمشاعر الاجتماعية بين آلاف الوكلاء في شبكة تواصل افتراضية.") },
+                    { icon: Target, title: t("التوجيه التنبؤي الاستراتيجي"), desc: t("تحديد الرسائل والزوايا الإقناعية الأكثر تأثيراً في الفئات المستهدفة بناءً على نتائج المحاكاة.") },
+                    { icon: ShieldCheck, title: t("بيئة رملية سيادية وآمنة"), desc: t("اختبر سيناريوهات \"ماذا لو\" (What-if) الحساسة في بيئة سحابية جزائرية محلية آمنة ومتوافقة 100%.") }
                   ].map((feature, i) => (
                     <div key={i} className="flex gap-4">
                       <div className="w-10 h-10 rounded-lg bg-dz-green/20 flex items-center justify-center shrink-0 mt-1">
@@ -599,7 +599,7 @@ export default function App() {
                   }}
                   className="inline-flex px-8 py-4 rounded-full bg-dz-gold hover:bg-dz-gold-light text-dz-darker font-bold text-lg transition-all duration-300 items-center justify-center gap-2 shadow-[0_0_20px_rgba(200,162,82,0.3)] hover:shadow-[0_0_30px_rgba(200,162,82,0.5)]"
                 >
-                  {t("احجز عرضاً تجريبياً للمنصة (Demo)")}
+                  {t("احجز عرضاً تجريبياً لمحاكاة MiroFish")}
                 </a>
               </motion.div>
               <motion.div 
@@ -619,32 +619,25 @@ export default function App() {
                     </div>
                     <div className="text-xs font-mono text-gray-500 flex items-center gap-2">
                       <Cloud className="w-3 h-3" />
-                      DZ-Cloud / Workspace
+                      MiroFish / Swarm Control
                     </div>
                   </div>
                   
                   <div className="p-6">
                     <div className="flex items-center justify-between mb-8">
                       <div>
-                        <h3 className="text-lg font-bold">{t("بناء جمهور مستهدف (Audience Builder)")}</h3>
-                        <p className="text-sm text-gray-500">{t("بلدية: حسين داي | الفئة: متأرجحين شباب")}</p>
+                        <h3 className="text-lg font-bold">{t("لوحة محاكاة الرأي العام (MiroFish)")}</h3>
+                        <p className="text-sm text-gray-500">{t("السيناريو: ردود الفعل على إطلاق منتج وطني جديد")}</p>
                       </div>
                       <div className="bg-dz-green/20 text-dz-green px-3 py-1 rounded-full text-xs font-bold border border-dz-green/30 flex items-center gap-1">
-                        <div className="w-2 h-2 rounded-full bg-dz-green" />
-                        {t("جاهز للتصدير")}
+                        <div className="w-2 h-2 rounded-full bg-dz-green animate-pulse" />
+                        {t("محاكاة نشطة")}
                       </div>
                     </div>
 
                     {/* Query UI */}
                     <div className="space-y-3 mb-8">
                        <div className="flex items-center gap-3 text-sm bg-white/5 p-3 rounded-lg border border-white/5">
-                         <span className="text-dz-gold font-bold">{t("تطابق")}</span>
-                         <span className="text-gray-300">{t("العمر بين")}</span>
-                         <span className="bg-black/30 px-2 py-1 rounded text-white font-mono">18 - 35</span>
-                       </div>
-                       <div className="flex items-center gap-3 text-sm bg-white/5 p-3 rounded-lg border border-white/5">
-                         <span className="text-dz-gold font-bold">{t("تطابق")}</span>
-                         <span className="text-gray-300">{t("النمط السايكومتري:")}</span>
                          <span className="bg-black/30 px-2 py-1 rounded text-white font-mono">{t("الناشط المتمرد")}</span>
                        </div>
                        <div className="flex items-center gap-3 text-sm bg-white/5 p-3 rounded-lg border border-white/5">
