@@ -63,9 +63,9 @@ export default function App() {
         <link rel="alternate" hreflang="en" href="https://www.dzanalytica.com/?lang=en" />
         <link rel="alternate" hreflang="fr" href="https://www.dzanalytica.com/?lang=fr" />
         <link rel="alternate" hreflang="x-default" href="https://www.dzanalytica.com/" />
-        <title>{t("دزاير أناليتيكا")} | {t("تحليل السوق، تنفيذ أنظمة Odoo، والبيانات الذكية في الجزائر")}</title>
-        <meta name="description" content={t("دزاير أناليتيكا هي خيارك الأول لفهم السوق الجزائري، الدراسات السلوكية، وتنفيذ أنظمة Odoo (ERP) للشركات.")} />
-        <meta name="keywords" content={t("دراسات السوق الجزائرية, تطوير Odoo الجزائر, تكامل Odoo ERP, توسع B2B في الجزائر, تحليلات البيانات الجزائر, SaaS, Big Data, دزاير أناليتيكا")} />
+        <title>{t("دزاير أناليتيكا | تحليل السوق، Odoo ERP، ومحاكاة الرأي العام MiroFish بالجزائر")}</title>
+        <meta name="description" content={t("دزاير أناليتيكا هي خيارك الأول لفهم السوق الجزائري، محاكاة الرأي العام وسلوك المستهلك (MiroFish)، تنفيذ أنظمة Odoo ERP للشركات، وتحليل البيانات الذكية في الجزائر.")} />
+        <meta name="keywords" content={t("دراسات السوق الجزائرية, محاكاة الرأي العام الجزائر, MiroFish, Odoo ERP الجزائر, تكامل Odoo, تحليلات البيانات الجزائر, محاكاة سلوك المستهلك, B2B data Algeria, swarm analysis Algeria, دزاير أناليتيكا")} />
         <script type="application/ld+json">
           {`
             {
@@ -94,7 +94,7 @@ export default function App() {
             {
               "@context": "https://schema.org",
               "@type": "Service",
-              "serviceType": "Market Intelligence, Data Analytics & Strategy Consulting",
+              "serviceType": "Market Intelligence, Data Analytics, Swarm Simulations & Strategy Consulting",
               "provider": {
                 "@type": "Organization",
                 "name": "DZ Analytica"
@@ -113,6 +113,14 @@ export default function App() {
                       "@type": "Service",
                       "name": "Market Intelligence & Research",
                       "description": "${t("دراسات السوق والرأي العام")} - Deep insights into Algerian consumer behavior, market trends, and B2B opportunities."
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "MiroFish Swarm Simulation & Cognitive Mapping",
+                      "description": "Public opinion simulation, cognitive mapping of target personas, and social contagion analysis in Algeria."
                     }
                   },
                   {
@@ -147,7 +155,15 @@ export default function App() {
                   "name": "${t("ما هي الخدمات التي تقدمها دزاير أناليتيكا في الجزائر؟")}",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "${t("تقدم دزاير أناليتيكا دراسات واستشارات السوق، تحليل بيانات الجمهور، أبحاث الرأي العام السلوكي، وتنفيذ وتطوير أنظمة Odoo ERP السحابية لمساعدة الشركات والمستثمرين في الجزائر.")}"
+                    "text": "${t("تقدم دزاير أناليتيكا دراسات واستشارات السوق، تحليل بيانات الجمهور، محاكاة الرأي العام (MiroFish)، تنفيذ وتطوير أنظمة Odoo ERP لمساعدة الشركات في الجزائر.")}"
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "${t("ما هي منصة MiroFish وما أهميتها للشركات بالجزائر؟")}",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "${t("منصة MiroFish هي أداة متطورة لمحاكاة الرأي العام والعدوى الاجتماعية بالجزائر، تمكن الشركات والمؤسسات من اختبار القرارات، الإعلانات، والسياسات رقمياً عبر آلاف الحسابات الافتراضية قبل إطلاقها الفعلي.")}"
                   }
                 },
                 {

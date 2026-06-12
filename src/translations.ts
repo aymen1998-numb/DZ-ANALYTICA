@@ -203,7 +203,13 @@ export const translations = {
     "احجز عرضاً تجريبياً لمحاكاة MiroFish": "Book a MiroFish Simulation Demo",
     "لوحة محاكاة الرأي العام (MiroFish)": "Public Opinion Simulation Dashboard (MiroFish)",
     "السيناريو: ردود الفعل على إطلاق منتج وطني جديد": "Scenario: Reactions to launching a new national product",
-    "محاكاة نشطة": "Active Simulation"
+    "محاكاة نشطة": "Active Simulation",
+    "دزاير أناليتيكا | تحليل السوق، Odoo ERP، ومحاكاة الرأي العام MiroFish بالجزائر": "DZ Analytica | Market Intelligence, Odoo ERP & MiroFish Swarm Simulation in Algeria",
+    "دزاير أناليتيكا هي خيارك الأول لفهم السوق الجزائري، محاكاة الرأي العام وسلوك المستهلك (MiroFish)، تنفيذ أنظمة Odoo ERP للشركات، وتحليل البيانات الذكية في الجزائر.": "DZ Analytica is your primary partner for Algerian market intelligence, MiroFish public opinion & swarm simulations, custom Odoo ERP implementation, and B2B data analytics in Algeria.",
+    "دراسات السوق الجزائرية, محاكاة الرأي العام الجزائر, MiroFish, Odoo ERP الجزائر, تكامل Odoo, تحليلات البيانات الجزائر, محاكاة سلوك المستهلك, B2B data Algeria, swarm analysis Algeria, دزاير أناليتيكا": "Algerian market research, public opinion simulation Algeria, MiroFish, Odoo ERP Algeria, Odoo integration, data analytics Algeria, consumer behavior simulation, B2B data Algeria, swarm analysis Algeria, DZ Analytica",
+    "تقدم دزاير أناليتيكا دراسات واستشارات السوق، تحليل بيانات الجمهور، محاكاة الرأي العام (MiroFish)، تنفيذ وتطوير أنظمة Odoo ERP لمساعدة الشركات في الجزائر.": "DZ Analytica provides market research, public opinion assessments, MiroFish swarm simulations, and customized Odoo ERP implementations to help companies in Algeria.",
+    "ما هي منصة MiroFish وما أهميتها للشركات بالجزائر؟": "What is the MiroFish platform and why is it important for businesses in Algeria?",
+    "منصة MiroFish هي أداة متطورة لمحاكاة الرأي العام والعدوى الاجتماعية بالجزائر، تمكن الشركات والمؤسسات من اختبار القرارات، الإعلانات، والسياسات رقمياً عبر آلاف الحسابات الافتراضية قبل إطلاقها الفعلي.": "The MiroFish platform is an advanced tool for simulating public opinion and social contagion in Algeria, enabling businesses and organizations to test decisions, ads, and policies digitally using thousands of virtual accounts before actual launch."
   },
   "fr": {
     "دزاير": "DZ ",
@@ -408,7 +414,13 @@ export const translations = {
     "احجز عرضاً تجريبياً لمحاكاة MiroFish": "Réserver une démo de simulation MiroFish",
     "لوحة محاكاة الرأي العام (MiroFish)": "Tableau de bord de simulation de l'opinion publique (MiroFish)",
     "السيناريو: ردود الفعل على إطلاق منتج وطني جديد": "Scénario : Réactions au lancement d'un nouveau produit national",
-    "محاكاة نشطة": "Simulation active"
+    "محاكاة نشطة": "Simulation active",
+    "دزاير أناليتيكا | تحليل السوق، Odoo ERP، ومحاكاة الرأي العام MiroFish بالجزائر": "DZ Analytica | Intelligence Marché, Odoo ERP & Simulation de Foule MiroFish en Algérie",
+    "دزاير أناليتيكا هي خيارك الأول لفهم السوق الجزائري، محاكاة الرأي العام وسلوك المستهلك (MiroFish)، تنفيذ أنظمة Odoo ERP للشركات، وتحليل البيانات الذكية في الجزائر.": "DZ Analytica est votre partenaire pour l'intelligence de marché, la simulation d'opinion publique et de foule MiroFish, l'intégration d'Odoo ERP et l'analyse de données en Algérie.",
+    "دراسات السوق الجزائرية, محاكاة الرأي العام الجزائر, MiroFish, Odoo ERP الجزائر, تكامل Odoo, تحليلات البيانات الجزائر, محاكاة سلوك المستهلك, B2B data Algeria, swarm analysis Algeria, دزاير أناليتيكا": "Études de marché Algérie, simulation opinion publique Algérie, MiroFish, Odoo ERP Algérie, intégration Odoo, analyse de données Algérie, simulation comportement consommateur, B2B data Algérie, swarm analysis Algérie, DZ Analytica",
+    "تقدم دزاير أناليتيكا دراسات واستشارات السوق، تحليل بيانات الجمهور، محاكاة الرأي العام (MiroFish)، تنفيذ وتطوير أنظمة Odoo ERP لمساعدة الشركات في الجزائر.": "DZ Analytica fournit des études de marché, des analyses d'opinion, des simulations de foule MiroFish et des implémentations d'Odoo ERP sur mesure en Algérie.",
+    "ما هي منصة MiroFish وما أهميتها للشركات بالجزائر؟": "Qu'est-ce que la plateforme MiroFish et pourquoi est-elle importante pour les entreprises en Algérie?",
+    "منصة MiroFish هي أداة متطورة لمحاكاة الرأي العام والعدوى الاجتماعية بالجزائر، تمكن الشركات والمؤسسات من اختبار القرارات، الإعلانات، والسياسات رقمياً عبر آلاف الحسابات الافتراضية قبل إطلاقها الفعلي.": "La plateforme MiroFish est un outil avancé pour simuler l'opinion publique et la contagion sociale en Algérie, permettant aux entreprises et aux organisations de tester numériquement leurs décisions, publicités et politiques via des milliers de comptes virtuels avant leur lancement réel."
   }
 };
 
