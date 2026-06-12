@@ -185,8 +185,8 @@ export const translations = {
     "دراسات السوق والرأي العام": "Market Research & Public Opinion",
     "الذكاء الاصطناعي والتوقع": "AI & Predictive Analytics",
     "الحلول البرمجية والـ ERP": "Software Solutions & ERP",
-    "محاكاة الرأي العام والذكاء الاصطناعي (MiroFish)": "Public Opinion & AI Simulation (MiroFish)",
-    "محاكاة سلوك المستهلكين واتجاهات الرأي العام في الجزائر عبر آلاف الوكلاء الأذكياء بتخصيص سيكومتري دقيق لتجربة القرارات قبل إطلاقها.": "Simulating consumer behavior and public opinion in Algeria using thousands of smart agents with custom psychometric settings to test decisions before launching."
+    "رسم الخرائط الإدراكية ومحاكاة التفاعل الاجتماعي (MiroFish)": "Cognitive Mapping & Social Swarm Simulation (MiroFish)",
+    "نمذجة الخرائط الإدراكية لآلاف الحسابات الافتراضية ومحاكاة تفاعلاتهم، نقاشاتهم، والعدوى الاجتماعية بينهم لتوقع انتشار الأفكار وسلوك المستهلك.": "Modeling cognitive maps for thousands of virtual profiles, simulating their interactions, debates, and social contagion to predict product adoption and viral propagation."
   },
   "fr": {
     "دزاير": "DZ ",
@@ -373,8 +373,8 @@ export const translations = {
     "دراسات السوق والرأي العام": "Études de Marché & Opinion Publique",
     "الذكاء الاصطناعي والتوقع": "IA & Analyses Prédictives",
     "الحلول البرمجية والـ ERP": "Solutions Logicielles & ERP",
-    "محاكاة الرأي العام والذكاء الاصطناعي (MiroFish)": "Simulation d'Opinion Publique & IA (MiroFish)",
-    "محاكاة سلوك المستهلكين واتجاهات الرأي العام في الجزائر عبر آلاف الوكلاء الأذكياء بتخصيص سيكومتري دقيق لتجربة القرارات قبل إطلاقها.": "Simulation des comportements de consommation et de l'opinion publique en Algérie via des milliers d'agents intelligents pour tester vos décisions avant lancement."
+    "رسم الخرائط الإدراكية ومحاكاة التفاعل الاجتماعي (MiroFish)": "Cartographie Cognitive & Simulation de Foule (MiroFish)",
+    "نمذجة الخرائط الإدراكية لآلاف الحسابات الافتراضية ومحاكاة تفاعلاتهم، نقاشاتهم، والعدوى الاجتماعية بينهم لتوقع انتشار الأفكار وسلوك المستهلك.": "Modélisation des cartes cognitives de milliers de profils virtuels, simulant leurs interactions, débats et contagion sociale pour prédire la propagation d'idées."
   }
 };
 
