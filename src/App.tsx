@@ -10,6 +10,9 @@ import { PitchDeck } from './components/PitchDeck';
 import { useTranslation, Language } from './translations';
 import { EthicsModal } from './components/EthicsModal';
 import { StatsHub } from './components/StatsHub';
+import articlesData from './data/articles.json';
+
+const articles = articlesData as any[];
 
 const navLinks = [
   { name: 'الرئيسية', href: '#home' },
@@ -17,8 +20,18 @@ const navLinks = [
   { name: 'خدماتنا', href: '#services' },
   { name: 'دراسات حالة', href: '#case-studies' },
   { name: 'المرصد', href: '#stats-hub' },
+  { name: 'التحليلات', href: '#blog' },
   { name: 'اتصل بنا', href: '#contact' },
 ];
+
+const formatDate = (dateString: string, currentLang: string) => {
+  const date = new Date(dateString);
+  return date.toLocaleDateString(currentLang === 'ar' ? 'ar-DZ' : currentLang === 'fr' ? 'fr-FR' : 'en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+};
 
 export default function App() {
   const { t, lang, setLang } = useTranslation();
@@ -28,6 +41,7 @@ export default function App() {
   const [isPitchDeckOpen, setIsPitchDeckOpen] = useState(false);
   const [isEthicsOpen, setIsEthicsOpen] = useState(false);
   const [activeServiceTab, setActiveServiceTab] = useState<'market-polling' | 'ai-prediction' | 'software-erp'>('market-polling');
+  const [selectedArticle, setSelectedArticle] = useState<any | null>(null);
 
   useEffect(() => {
     // Secret ways to open modals directly via URL path or parameters
@@ -760,6 +774,53 @@ export default function App() {
 
         <StatsHub />
 
+        {/* Blog / Insights Section */}
+        <section id="blog" className="py-20 bg-dz-dark relative overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <h2 className="text-4xl font-bold mb-4">{t("تحليلات دزاير (DZ Insights)")}</h2>
+              <p className="text-gray-400 text-lg">
+                {t("تحليلات ودراسات أسبوعية معمقة حول السوق والتوجهات الاقتصادية والتكنولوجية بالجزائر.")}
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {articles.slice(0, 3).map((article, index) => {
+                const title = article.title[lang] || article.title['ar'];
+                const excerpt = article.excerpt[lang] || article.excerpt['ar'];
+                return (
+                  <motion.div
+                    key={article.slug}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="bg-dz-darker border border-white/10 rounded-2xl p-6 hover:border-dz-gold/50 transition-all duration-300 flex flex-col justify-between group"
+                  >
+                    <div>
+                      <div className="text-xs text-dz-gold mb-3 font-mono">
+                        {formatDate(article.date, lang)}
+                      </div>
+                      <h3 className="text-xl font-bold mb-4 text-white group-hover:text-dz-gold transition-colors line-clamp-2">
+                        {title}
+                      </h3>
+                      <p className="text-gray-400 text-sm leading-relaxed mb-6 line-clamp-3">
+                        {excerpt}
+                      </p>
+                    </div>
+                    <button
+                      onClick={() => setSelectedArticle(article)}
+                      className="text-dz-green hover:text-dz-green-light font-bold text-sm flex items-center gap-2 transition-colors self-start cursor-pointer mt-auto"
+                    >
+                      {t("اقرأ التحليل الكامل")} &rarr;
+                    </button>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
         {/* Partners Section */}
         <section className="py-16 bg-dz-darker border-y border-white/5 overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -953,6 +1014,82 @@ export default function App() {
 
       {/* Ethics Modal */}
       <EthicsModal isOpen={isEthicsOpen} onClose={() => setIsEthicsOpen(false)} />
+
+      {/* Article Modal */}
+      <AnimatePresence>
+        {selectedArticle && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedArticle(null)}
+              className="absolute inset-0 bg-black/80 backdrop-blur-md"
+            />
+
+            {/* Modal Box */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="relative bg-dz-darker w-full max-w-4xl max-h-[85vh] rounded-3xl border border-white/10 overflow-hidden shadow-2xl z-10 flex flex-col"
+            >
+              {/* Header */}
+              <div className="flex items-center justify-between px-8 py-6 border-b border-white/10 bg-black/40">
+                <div className="text-xs font-mono text-dz-gold">
+                  {formatDate(selectedArticle.date, lang)}
+                </div>
+                <button
+                  onClick={() => setSelectedArticle(null)}
+                  className="text-gray-400 hover:text-white transition-colors cursor-pointer p-1 rounded-full hover:bg-white/5"
+                >
+                  <X className="w-6 h-6" />
+                </button>
+              </div>
+
+              {/* Scrollable Content */}
+              <div className="p-8 overflow-y-auto space-y-6 flex-1 custom-scrollbar">
+                <h1 className="text-3xl md:text-4xl font-black text-white leading-tight">
+                  {selectedArticle.title[lang] || selectedArticle.title['ar']}
+                </h1>
+                
+                {selectedArticle.keywords[lang] && (
+                  <div className="flex flex-wrap gap-2 text-xs">
+                    {selectedArticle.keywords[lang].split(',').map((kw: string, i: number) => (
+                      <span key={i} className="bg-white/5 text-gray-400 px-3 py-1 rounded-full border border-white/5">
+                        #{kw.trim()}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                <div 
+                  className="text-gray-300 space-y-4 leading-relaxed text-lg whitespace-pre-line prose prose-invert max-w-none pt-4 border-t border-white/5"
+                  dir={lang === 'ar' ? 'rtl' : 'ltr'}
+                >
+                  {(selectedArticle.content[lang] || selectedArticle.content['ar'])
+                    .split('\n')
+                    .map((paragraph: string, i: number) => {
+                      if (paragraph.startsWith('###')) {
+                        return (
+                          <h3 key={i} className="text-xl font-bold text-dz-gold mt-6 mb-3">
+                            {paragraph.replace('###', '').trim()}
+                          </h3>
+                        );
+                      }
+                      return paragraph.trim() ? (
+                        <p key={i} className="text-gray-300">
+                          {paragraph}
+                        </p>
+                      ) : null;
+                    })}
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

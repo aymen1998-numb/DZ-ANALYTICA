@@ -209,7 +209,11 @@ export const translations = {
     "دراسات السوق الجزائرية, محاكاة الرأي العام الجزائر, MiroFish, Odoo ERP الجزائر, تكامل Odoo, تحليلات البيانات الجزائر, محاكاة سلوك المستهلك, B2B data Algeria, swarm analysis Algeria, دزاير أناليتيكا": "Algerian market research, public opinion simulation Algeria, MiroFish, Odoo ERP Algeria, Odoo integration, data analytics Algeria, consumer behavior simulation, B2B data Algeria, swarm analysis Algeria, DZ Analytica",
     "تقدم دزاير أناليتيكا دراسات واستشارات السوق، تحليل بيانات الجمهور، محاكاة الرأي العام (MiroFish)، تنفيذ وتطوير أنظمة Odoo ERP لمساعدة الشركات في الجزائر.": "DZ Analytica provides market research, public opinion assessments, MiroFish swarm simulations, and customized Odoo ERP implementations to help companies in Algeria.",
     "ما هي منصة MiroFish وما أهميتها للشركات بالجزائر؟": "What is the MiroFish platform and why is it important for businesses in Algeria?",
-    "منصة MiroFish هي أداة متطورة لمحاكاة الرأي العام والعدوى الاجتماعية بالجزائر، تمكن الشركات والمؤسسات من اختبار القرارات، الإعلانات، والسياسات رقمياً عبر آلاف الحسابات الافتراضية قبل إطلاقها الفعلي.": "The MiroFish platform is an advanced tool for simulating public opinion and social contagion in Algeria, enabling businesses and organizations to test decisions, ads, and policies digitally using thousands of virtual accounts before actual launch."
+    "منصة MiroFish هي أداة متطورة لمحاكاة الرأي العام والعدوى الاجتماعية بالجزائر، تمكن الشركات والمؤسسات من اختبار القرارات، الإعلانات، والسياسات رقمياً عبر آلاف الحسابات الافتراضية قبل إطلاقها الفعلي.": "The MiroFish platform is an advanced tool for simulating public opinion and social contagion in Algeria, enabling businesses and organizations to test decisions, ads, and policies digitally using thousands of virtual accounts before actual launch.",
+    "التحليلات": "Insights",
+    "تحليلات دزاير (DZ Insights)": "DZ Insights",
+    "تحليلات ودراسات أسبوعية معمقة حول السوق والتوجهات الاقتصادية والتكنولوجية بالجزائر.": "Weekly in-depth analyses and market research on economic and technological trends in Algeria.",
+    "اقرأ التحليل الكامل": "Read Full Analysis"
   },
   "fr": {
     "دزاير": "DZ ",
@@ -420,7 +424,11 @@ export const translations = {
     "دراسات السوق الجزائرية, محاكاة الرأي العام الجزائر, MiroFish, Odoo ERP الجزائر, تكامل Odoo, تحليلات البيانات الجزائر, محاكاة سلوك المستهلك, B2B data Algeria, swarm analysis Algeria, دزاير أناليتيكا": "Études de marché Algérie, simulation opinion publique Algérie, MiroFish, Odoo ERP Algérie, intégration Odoo, analyse de données Algérie, simulation comportement consommateur, B2B data Algérie, swarm analysis Algérie, DZ Analytica",
     "تقدم دزاير أناليتيكا دراسات واستشارات السوق، تحليل بيانات الجمهور، محاكاة الرأي العام (MiroFish)، تنفيذ وتطوير أنظمة Odoo ERP لمساعدة الشركات في الجزائر.": "DZ Analytica fournit des études de marché, des analyses d'opinion, des simulations de foule MiroFish et des implémentations d'Odoo ERP sur mesure en Algérie.",
     "ما هي منصة MiroFish وما أهميتها للشركات بالجزائر؟": "Qu'est-ce que la plateforme MiroFish et pourquoi est-elle importante pour les entreprises en Algérie?",
-    "منصة MiroFish هي أداة متطورة لمحاكاة الرأي العام والعدوى الاجتماعية بالجزائر، تمكن الشركات والمؤسسات من اختبار القرارات، الإعلانات، والسياسات رقمياً عبر آلاف الحسابات الافتراضية قبل إطلاقها الفعلي.": "La plateforme MiroFish est un outil avancé pour simuler l'opinion publique et la contagion sociale en Algérie, permettant aux entreprises et aux organisations de tester numériquement leurs décisions, publicités et politiques via des milliers de comptes virtuels avant leur lancement réel."
+    "منصة MiroFish هي أداة متطورة لمحاكاة الرأي العام والعدوى الاجتماعية بالجزائر، تمكن الشركات والمؤسسات من اختبار القرارات، الإعلانات، والسياسات رقمياً عبر آلاف الحسابات الافتراضية قبل إطلاقها الفعلي.": "La plateforme MiroFish est un outil avancé pour simuler l'opinion publique et la contagion sociale en Algérie, permettant aux entreprises et aux organisations de tester numériquement leurs décisions, publicités et politiques via des milliers de comptes virtuels avant leur lancement réel.",
+    "التحليلات": "Analyses",
+    "تحليلات دزاير (DZ Insights)": "Analyses DZ",
+    "تحليلات ودراسات أسبوعية معمقة حول السوق والتوجهات الاقتصادية والتكنولوجية بالجزائر.": "Analyses et études hebdomadaires approfondies sur le marché, l'économie et les tendances technologiques en Algérie.",
+    "اقرأ التحليل الكامل": "Lire l'analyse complète"
   }
 };
 
