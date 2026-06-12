@@ -1076,16 +1076,26 @@ export default function App() {
                   {(selectedArticle.content[lang] || selectedArticle.content['ar'])
                     .split('\n')
                     .map((paragraph: string, i: number) => {
-                      if (paragraph.startsWith('###')) {
+                      const trimmed = paragraph.trim();
+                      if (!trimmed) return null;
+                      
+                      const isHeader = trimmed.startsWith('###') || /<h[1-6]>/.test(trimmed);
+                      if (isHeader) {
+                        const cleanText = trimmed
+                          .replace(/^###/g, '')
+                          .replace(/<\/?[a-z0-9]+[^>]*>/gi, '')
+                          .trim();
                         return (
                           <h3 key={i} className="text-xl font-bold text-dz-gold mt-6 mb-3">
-                            {paragraph.replace('###', '').trim()}
+                            {cleanText}
                           </h3>
                         );
                       }
-                      return paragraph.trim() ? (
+                      
+                      const cleanPara = trimmed.replace(/<\/?[a-z0-9]+[^>]*>/gi, '').trim();
+                      return cleanPara ? (
                         <p key={i} className="text-gray-300">
-                          {paragraph}
+                          {cleanPara}
                         </p>
                       ) : null;
                     })}
