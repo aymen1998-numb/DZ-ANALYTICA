@@ -181,7 +181,12 @@ export const translations = {
     "هل توفر دزاير أناليتيكا خدمات تكامل وتطوير Odoo ERP للشركات الجزائرية؟": "Does DZ Analytica offer Odoo ERP integration and development in Algeria?",
     "نعم، نحن متخصصون في تخصيص وتنفيذ نظام Odoo لإدارة الموارد (ERP) في الجزائر، بما في ذلك إدارة المبيعات، المحاسبة المتوافقة مع النظام الجبائي الجزائري، المخازن، والربط السحابي الآمن.": "Yes, we specialize in customizing and deploying Odoo ERP in Algeria, including sales management, accounting compliant with Algerian tax laws, inventory, and secure cloud hosting.",
     "كيف تساعد المنصة في توسيع نطاق الأعمال B2B ودراسة السوق الجزائري؟": "How does the platform support B2B market entry and expansion in Algeria?",
-    "نستخدم خوارزميات الذكاء الاصطناعي والنمذجة التنبؤية لربط الشركات بقواعد بيانات دقيقة للمشترين وصناع القرار الشرائي (B2B qualified leads) in various Algerian wilayas.": "We leverage predictive modeling and AI algorithms to connect businesses with high-intent decision makers and qualified B2B leads in various Algerian wilayas."
+    "نستخدم خوارزميات الذكاء الاصطناعي والنمذجة التنبؤية لربط الشركات بقواعد بيانات دقيقة للمشترين وصناع القرار الشرائي (B2B qualified leads) in various Algerian wilayas.": "We leverage predictive modeling and AI algorithms to connect businesses with high-intent decision makers and qualified B2B leads in various Algerian wilayas.",
+    "دراسات السوق والرأي العام": "Market Research & Public Opinion",
+    "الذكاء الاصطناعي والتوقع": "AI & Predictive Analytics",
+    "الحلول البرمجية والـ ERP": "Software Solutions & ERP",
+    "محاكاة الرأي العام والذكاء الاصطناعي (MiroFish)": "Public Opinion & AI Simulation (MiroFish)",
+    "محاكاة سلوك المستهلكين واتجاهات الرأي العام في الجزائر عبر آلاف الوكلاء الأذكياء بتخصيص سيكومتري دقيق لتجربة القرارات قبل إطلاقها.": "Simulating consumer behavior and public opinion in Algeria using thousands of smart agents with custom psychometric settings to test decisions before launching."
   },
   "fr": {
     "دزاير": "DZ ",
@@ -364,7 +369,12 @@ export const translations = {
     "هل توفر دزاير أناليتيكا خدمات تكامل وتطوير Odoo ERP للشركات الجزائرية؟": "Proposez-vous l'intégration et l'implémentation d'Odoo ERP en Algérie ?",
     "نعم، نحن متخصصون في تخصيص وتنفيذ نظام Odoo لإدارة الموارد (ERP) في الجزائر، بما في ذلك إدارة المبيعات، المحاسبة المتوافقة مع النظام الجبائي الجزائري، المخازن، والربط السحابي الآمن.": "Oui, nous sommes spécialisés dans le déploiement et la personnalisation d'Odoo ERP en Algérie, y compris la gestion commerciale, la comptabilité fiscale algérienne, les stocks et l'hébergement cloud sécurisé.",
     "كيف تساعد المنصة في توسيع نطاق الأعمال B2B ودراسة السوق الجزائري؟": "Comment DZ Analytica aide-t-elle à l'expansion B2B et à l'étude de marché en Algérie ?",
-    "نستخدم خوارزميات الذكاء الاصطناعي والنمذجة التنبؤية لربط الشركات بقواعد بيانات دقيقة للمشترين وصناع القرار الشرائي (B2B qualified leads) in various Algerian wilayas.": "Nous utilisons des algorithmes prédictifs et de l'IA pour connecter les entreprises à des bases de données ciblées de décideurs et de prospects B2B qualifiés in various Algerian wilayas."
+    "نستخدم خوارزميات الذكاء الاصطناعي والنمذجة التنبؤية لربط الشركات بقواعد بيانات دقيقة للمشترين وصناع القرار الشرائي (B2B qualified leads) in various Algerian wilayas.": "Nous utilisons des algorithmes prédictifs et de l'IA pour connecter les entreprises à des bases de données ciblées de décideurs et de prospects B2B qualifiés in various Algerian wilayas.",
+    "دراسات السوق والرأي العام": "Études de Marché & Opinion Publique",
+    "الذكاء الاصطناعي والتوقع": "IA & Analyses Prédictives",
+    "الحلول البرمجية والـ ERP": "Solutions Logicielles & ERP",
+    "محاكاة الرأي العام والذكاء الاصطناعي (MiroFish)": "Simulation d'Opinion Publique & IA (MiroFish)",
+    "محاكاة سلوك المستهلكين واتجاهات الرأي العام في الجزائر عبر آلاف الوكلاء الأذكياء بتخصيص سيكومتري دقيق لتجربة القرارات قبل إطلاقها.": "Simulation des comportements de consommation et de l'opinion publique en Algérie via des milliers d'agents intelligents pour tester vos décisions avant lancement."
   }
 };
 

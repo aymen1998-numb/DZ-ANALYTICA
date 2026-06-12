@@ -27,6 +27,7 @@ export default function App() {
   const [isQuizOpen, setIsQuizOpen] = useState(false);
   const [isPitchDeckOpen, setIsPitchDeckOpen] = useState(false);
   const [isEthicsOpen, setIsEthicsOpen] = useState(false);
+  const [activeServiceTab, setActiveServiceTab] = useState<'market-polling' | 'ai-prediction' | 'software-erp'>('market-polling');
 
   useEffect(() => {
     // Secret ways to open modals directly via URL path or parameters
@@ -428,72 +429,113 @@ export default function App() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-               {[
-                  {
-                    id: "predictive-modeling",
-                    title: t("النمذجة التنبؤية"),
-                    description: t("نماذج رياضية وإحصائية لتوقع سلوكيات الجمهور وتحديد الفئات المتأرجحة بدقة رياضية عالية."),
-                    icon: LineChart,
-                  },
+            {/* Tab Selector */}
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-12 max-w-4xl mx-auto">
+              {[
+                { id: 'market-polling', label: t('دراسات السوق والرأي العام') },
+                { id: 'ai-prediction', label: t('الذكاء الاصطناعي والتوقع') },
+                { id: 'software-erp', label: t('الحلول البرمجية والـ ERP') }
+              ].map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveServiceTab(tab.id as any)}
+                  className={`px-5 py-3 sm:px-6 sm:py-3.5 rounded-full text-sm sm:text-base font-bold transition-all duration-300 ${
+                    activeServiceTab === tab.id
+                      ? 'bg-dz-gold text-dz-darker shadow-[0_0_20px_rgba(200,162,82,0.3)]'
+                      : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white border border-white/10'
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 min-h-[380px]">
+              <AnimatePresence mode="popLayout">
+                {[
                   {
                     id: "voter-mapping",
                     title: t("الخريطة السيكومترية"),
                     description: t("فهم عميق لشخصيات الجمهور ودوافعهم الخفية باستخدام تقنيات تحليل البيانات وعلم النفس."),
                     icon: Map,
-                  },
-                  {
-                    id: "message-lab",
-                    title: t("مختبر اختبار الرسائل"),
-                    description: t("اختبر فعالية رسائلك التواصلية والتسويقية قبل إطلاقها. نستخدم تقنيات A/B Testing لضمان أقصى تأثير."),
-                    icon: FlaskConical,
+                    category: "market-polling"
                   },
                   {
                     id: "social-listening",
                     title: t("صوت دزاير (Saout Dzayer)"),
                     description: lang === 'ar' ? t("منصة استماع اجتماعي تراقب النبض العام للشارع الجزائري وتحلل المشاعر والانطباعات في الوقت الفعلي.") : "Social listening platform monitoring the Algerian public pulse in real-time.",
                     icon: Ear,
-                  },
-                  {
-                    id: "saas-licensing",
-                    title: t("ترخيص برمجيات السحاب (SaaS)"),
-                    description: t("نوفر تراخيص برمجية ذكية وسحابية لتمكينك من إطلاق وإدارة حملاتك السياسية أو الإعلانية أو التسويقية بشكل رقمي ومستقل تماماً."),
-                    icon: Cloud,
-                  },
-                  {
-                    id: "implicit-polling",
-                    title: lang === 'ar' ? t("استطلاعات ضمنية 2.0") : "Implicit Polling 2.0",
-                    description: lang === 'ar' ? t("قياس الانحيازات الضمنية وردود الفعل العفوية تجاه القضايا الساخنة خارج نطاق الاستطلاعات التقليدية.") : "Measuring implicit biases and spontaneous reactions beyond traditional polling.",
-                    icon: BarChart3,
-                  },
-                  {
-                    id: "odoo-implementation",
-                    title: t("تنفيذ وتطوير أنظمة Odoo"),
-                    description: t("تهيئة وإدماج أنظمة تخطيط الموارد (ERP) باستخدام Odoo لإدارة المؤسسات والمشاريع بفعالية، مع الدعم الفني المستمر واستضافة سحابية آمنة في الجزائر."),
-                    icon: Database,
+                    category: "market-polling"
                   },
                   {
                     id: "surveys-running",
                     title: t("تصميم وتنفيذ الاستبيانات"),
                     description: t("جمع البيانات الميدانية بدقة عالية، وتصميم اختبارات ودراسات استقصائية شاملة لتغذية نماذج الذكاء الاصطناعي وبناء استراتيجيات معتمدة على الواقع المجتمعي."),
                     icon: PieChart,
+                    category: "market-polling"
                   },
-                ].map((service, index) => (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1, duration: 0.5 }}
-                  key={service.id}
-                  className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 hover:border-dz-gold/50 transition-all duration-300 group cursor-pointer"
-                >
-                  <div className="w-14 h-14 bg-dz-green/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-dz-gold/20 transition-all">
-                    <service.icon className="h-7 w-7 text-dz-green group-hover:text-dz-gold" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-4">{service.title}</h3>
-                  <p className="text-gray-400 leading-relaxed">{service.description}</p>
-                </motion.div>
-              ))}
+                  {
+                    id: "implicit-polling",
+                    title: lang === 'ar' ? t("استطلاعات ضمنية 2.0") : "Implicit Polling 2.0",
+                    description: lang === 'ar' ? t("قياس الانحيازات الضمنية وردود الفعل العفوية تجاه القضايا الساخنة خارج نطاق الاستطلاعات التقليدية.") : "Measuring implicit biases and spontaneous reactions beyond traditional polling.",
+                    icon: BarChart3,
+                    category: "market-polling"
+                  },
+                  {
+                    id: "predictive-modeling",
+                    title: t("النمذجة التنبؤية"),
+                    description: t("نماذج رياضية وإحصائية لتوقع سلوكيات الجمهور وتحديد الفئات المتأرجحة بدقة رياضية عالية."),
+                    icon: LineChart,
+                    category: "ai-prediction"
+                  },
+                  {
+                    id: "mirofish-swarm",
+                    title: t("محاكاة الرأي العام والذكاء الاصطناعي (MiroFish)"),
+                    description: t("محاكاة سلوك المستهلكين واتجاهات الرأي العام في الجزائر عبر آلاف الوكلاء الأذكياء بتخصيص سيكومتري دقيق لتجربة القرارات قبل إطلاقها."),
+                    icon: Users,
+                    category: "ai-prediction"
+                  },
+                  {
+                    id: "message-lab",
+                    title: t("مختبر اختبار الرسائل"),
+                    description: t("اختبر فعالية رسائلك التواصلية والتسويقية قبل إطلاقها. نستخدم تقنيات A/B Testing لضمان أقصى تأثير."),
+                    icon: FlaskConical,
+                    category: "ai-prediction"
+                  },
+                  {
+                    id: "odoo-implementation",
+                    title: t("تنفيذ وتطوير أنظمة Odoo"),
+                    description: t("تهيئة وإدماج أنظمة تخطيط الموارد (ERP) باستخدام Odoo لإدارة المؤسسات والمشاريع بفعالية، مع الدعم الفني المستمر واستضافة سحابية آمنة في الجزائر."),
+                    icon: Database,
+                    category: "software-erp"
+                  },
+                  {
+                    id: "saas-licensing",
+                    title: t("ترخيص برمجيات السحاب (SaaS)"),
+                    description: t("نوفر تراخيص برمجية ذكية وسحابية لتمكينك من إطلاق وإدارة حملاتك السياسية أو الإعلانية أو التسويقية بشكل رقمي ومستقل تماماً."),
+                    icon: Cloud,
+                    category: "software-erp"
+                  }
+                ]
+                .filter(service => service.category === activeServiceTab)
+                .map((service) => (
+                  <motion.div
+                    layout
+                    initial={{ opacity: 0, scale: 0.95, y: 15 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.95, y: -15 }}
+                    transition={{ duration: 0.3 }}
+                    key={service.id}
+                    className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 hover:border-dz-gold/50 transition-all duration-300 group cursor-pointer"
+                  >
+                    <div className="w-14 h-14 bg-dz-green/20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-dz-gold/20 transition-all">
+                      <service.icon className="h-7 w-7 text-dz-green group-hover:text-dz-gold" />
+                    </div>
+                    <h3 className="text-xl font-bold mb-4">{service.title}</h3>
+                    <p className="text-gray-400 leading-relaxed">{service.description}</p>
+                  </motion.div>
+                ))}
+              </AnimatePresence>
             </div>
           </div>
         </section>
