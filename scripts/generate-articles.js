@@ -133,6 +133,11 @@ async function main() {
   
   fs.writeFileSync(filePath, JSON.stringify(articles, null, 2), 'utf8');
   console.log(`Successfully saved new article to ${filePath}`);
+  
+  if (process.env.GITHUB_OUTPUT) {
+    fs.appendFileSync(process.env.GITHUB_OUTPUT, `title=${newArticle.title.en}\n`, 'utf8');
+    fs.appendFileSync(process.env.GITHUB_OUTPUT, `slug=${newArticle.slug}\n`, 'utf8');
+  }
 }
 
 main().catch(console.error);
