@@ -20,7 +20,7 @@ const navLinks = [
   { name: 'خدماتنا', href: '#services' },
   { name: 'دراسات حالة', href: '#case-studies' },
   { name: 'المرصد', href: '#stats-hub' },
-  { name: 'التحليلات', href: '#blog' },
+  { name: 'التحليلات', href: 'https://news.dzanalytica.com' },
   { name: 'اتصل بنا', href: '#contact' },
 ];
 
@@ -219,6 +219,7 @@ export default function App() {
                   key={link.name} 
                   href={link.href}
                   onClick={(e) => {
+                    if (link.href.startsWith('http')) return;
                     e.preventDefault();
                     const targetId = link.href.replace('#', '');
                     const element = document.getElementById(targetId);
@@ -296,6 +297,10 @@ export default function App() {
                     key={link.name}
                     href={link.href}
                     onClick={(e) => {
+                      if (link.href.startsWith('http')) {
+                        setIsMobileMenuOpen(false);
+                        return;
+                      }
                       e.preventDefault();
                       setIsMobileMenuOpen(false);
                       const targetId = link.href.replace('#', '');
