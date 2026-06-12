@@ -491,13 +491,6 @@ export default function App() {
                     category: "market-polling"
                   },
                   {
-                    id: "implicit-polling",
-                    title: lang === 'ar' ? t("استطلاعات ضمنية 2.0") : "Implicit Polling 2.0",
-                    description: lang === 'ar' ? t("قياس الانحيازات الضمنية وردود الفعل العفوية تجاه القضايا الساخنة خارج نطاق الاستطلاعات التقليدية.") : "Measuring implicit biases and spontaneous reactions beyond traditional polling.",
-                    icon: BarChart3,
-                    category: "market-polling"
-                  },
-                  {
                     id: "predictive-modeling",
                     title: t("النمذجة التنبؤية"),
                     description: t("نماذج رياضية وإحصائية لتوقع سلوكيات الجمهور وتحديد الفئات المتأرجحة بدقة رياضية عالية."),
@@ -790,35 +783,6 @@ export default function App() {
               </div>
             </div>
           </div>
-        </section>
-
-        {/* The Quiz Portal (Data Funnel) */}
-        <section id="quiz" className="py-32 bg-dz-darker relative overflow-hidden">
-           <div className="absolute inset-0 z-0">
-             <div className="absolute right-1/4 top-0 w-[800px] h-[800px] bg-dz-green/20 rounded-full mix-blend-screen filter blur-[100px] opacity-30" />
-           </div>
-           <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
-              <BrainCircuit className="h-16 w-16 text-dz-green mx-auto mb-6" />
-              <h2 className="text-4xl md:text-5xl font-black mb-8 leading-tight">{t("شارك في بناء أكبر دراسة\nللسلوكيات الثقافية والمجتمعية في الجزائر").split("\n").map((line, i) => <React.Fragment key={i}>{line}<br/></React.Fragment>)}</h2>
-              <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
-                {t("البوصلة السايكومترية الجزائرية (DZ Compass) هو اختبار مجاني ومجهول الهوية بالكامل. في 10 أسئلة فقط، اكتشف نمط شخصيتك وتفضيلاتك الثقافية.")}
-              </p>
-              
-              <motion.a 
-                href="https://quiz.dzanalytica.com"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-dz-green to-dz-green-dark hover:from-dz-green-light hover:to-dz-green text-white px-10 py-5 rounded-2xl font-bold text-2xl shadow-[0_0_30px_rgba(0,98,51,0.6)] hover:shadow-[0_0_50px_rgba(0,180,90,0.8)] transition-all flex items-center justify-center gap-4 mx-auto w-full md:w-auto cursor-pointer text-center"
-              >
-                <Brain className="h-8 w-8 animate-pulse" />
-                <span dir={lang === "ar" ? "rtl" : "ltr"}>{t("اكتشف شخصيتك")}</span>
-              </motion.a>
-              
-              <div className="mt-8 flex items-center justify-center gap-2 text-sm text-gray-500">
-                <ShieldCheck className="h-4 w-4" />
-                <span>{t("البيانات مجهولة الهوية بنسبة 100٪ ولن يتم بيعها لأطراف ثالثة.")}</span>
-              </div>
-           </div>
         </section>
 
         {/* Contact Section */}
