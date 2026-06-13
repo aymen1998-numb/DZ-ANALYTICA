@@ -1070,35 +1070,15 @@ export default function App() {
                 )}
 
                 <div 
-                  className="text-gray-300 space-y-4 leading-relaxed text-lg whitespace-pre-line prose prose-invert max-w-none pt-4 border-t border-white/5"
+                  className="text-gray-300 space-y-4 leading-relaxed text-lg prose prose-invert max-w-none pt-4 border-t border-white/5"
                   dir={lang === 'ar' ? 'rtl' : 'ltr'}
                 >
-                  {(selectedArticle.content[lang] || selectedArticle.content['ar'])
-                    .split('\n')
-                    .map((paragraph: string, i: number) => {
-                      const trimmed = paragraph.trim();
-                      if (!trimmed) return null;
-                      
-                      const isHeader = trimmed.startsWith('###') || /<h[1-6]>/.test(trimmed);
-                      if (isHeader) {
-                        const cleanText = trimmed
-                          .replace(/^###/g, '')
-                          .replace(/<\/?[a-z0-9]+[^>]*>/gi, '')
-                          .trim();
-                        return (
-                          <h3 key={i} className="text-xl font-bold text-dz-gold mt-6 mb-3">
-                            {cleanText}
-                          </h3>
-                        );
-                      }
-                      
-                      const cleanPara = trimmed.replace(/<\/?[a-z0-9]+[^>]*>/gi, '').trim();
-                      return cleanPara ? (
-                        <p key={i} className="text-gray-300">
-                          {cleanPara}
-                        </p>
-                      ) : null;
-                    })}
+                  <div 
+                    className="whitespace-pre-line"
+                    dangerouslySetInnerHTML={{ 
+                      __html: (selectedArticle.content[lang] || selectedArticle.content['ar']) 
+                    }} 
+                  />
                 </div>
               </div>
             </motion.div>
