@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Barlow+Condensed:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap");
 @import "tailwindcss";
 
 @theme {
@@ -22,4 +22,345 @@ body {
   font-family: "Cairo", sans-serif;
   background-color: var(--color-dz-darker);
   color: white;
+  overflow-x: hidden;
+}
+
+/* ═══════════════════════════════════════════
+   ARTICLE MODAL — RICH CONTENT STYLES
+   (applied to dangerouslySetInnerHTML HTML)
+═══════════════════════════════════════════ */
+
+/* Scrollbar */
+.custom-scrollbar::-webkit-scrollbar { width: 6px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(200,162,82,0.3); border-radius: 3px; }
+.custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(200,162,82,0.6); }
+
+/* H3 headings inside article content */
+.article-body h3 {
+  font-family: 'Barlow Condensed', 'Cairo', sans-serif;
+  font-size: clamp(20px, 4vw, 28px);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  margin: 36px 0 16px;
+  line-height: 1.1;
+}
+
+/* Paragraphs */
+.article-body p {
+  color: #CBD5E1;
+  margin-bottom: 16px;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+/* ── PULL QUOTE ── */
+.article-body .pull-quote {
+  border-left: 4px solid #00843D;
+  padding: 18px 20px;
+  margin: 28px 0;
+  background: rgba(0, 132, 61, 0.07);
+  border-radius: 0 4px 4px 0;
+}
+[dir="rtl"] .article-body .pull-quote {
+  border-left: none;
+  border-right: 4px solid #00843D;
+  border-radius: 4px 0 0 4px;
+}
+.article-body .pull-quote p {
+  font-family: 'Barlow Condensed', 'Cairo', sans-serif;
+  font-size: clamp(18px, 3.5vw, 24px);
+  font-weight: 700;
+  line-height: 1.25;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  margin-bottom: 0;
+}
+.article-body .pull-quote cite {
+  display: block;
+  margin-top: 8px;
+  font-family: 'Inter', 'Cairo', sans-serif;
+  font-size: 11px;
+  font-style: normal;
+  color: #8B9BB4;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ── SECTION EYEBROW ── */
+.article-body .section-eyebrow {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #C8A252;
+  border-left: 3px solid #C8A252;
+  padding-left: 10px;
+  margin-bottom: 14px;
+}
+[dir="rtl"] .article-body .section-eyebrow {
+  border-left: none;
+  border-right: 3px solid #C8A252;
+  padding-left: 0;
+  padding-right: 10px;
+}
+
+/* ── MATCH TABLE ── */
+.article-body .match-table-wrap {
+  margin: 20px 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 6px;
+  border: 1px solid rgba(139,155,180,0.12);
+}
+.article-body table {
+  width: 100%;
+  min-width: 480px;
+  border-collapse: collapse;
+  font-size: 13px;
+  background: rgba(255,255,255,0.02);
+}
+.article-body thead th {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #8B9BB4;
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid rgba(139,155,180,0.2);
+  white-space: nowrap;
+}
+[dir="rtl"] .article-body thead th { text-align: right; }
+.article-body tbody tr {
+  border-bottom: 1px solid rgba(139,155,180,0.08);
+  transition: background 0.15s;
+}
+.article-body tbody tr:hover { background: rgba(255,255,255,0.03); }
+.article-body tbody td {
+  padding: 11px 14px;
+  color: #F5F0E8;
+}
+.article-body tr.highlight-row td { background: rgba(0,132,61,0.08); }
+.article-body tr.highlight-row td:first-child {
+  border-left: 3px solid #00843D;
+  padding-left: 11px;
+}
+[dir="rtl"] .article-body tr.highlight-row td:first-child {
+  border-left: none;
+  border-right: 3px solid #00843D;
+  padding-left: 14px;
+  padding-right: 11px;
+}
+
+/* ── TACTICS GRID ── */
+.article-body .tactics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 20px 0;
+}
+.article-body .tactic-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 4px;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.article-body .tactic-bullet {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #00843D;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+.article-body .tactic-text {
+  font-size: 13px;
+  color: #F5F0E8;
+  line-height: 1.5;
+}
+
+/* ── GAUGE CARDS ── */
+.article-body .gauge-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+.article-body .gauge-card {
+  background: rgba(19,31,56,0.8);
+  border: 1px solid rgba(201,168,76,0.15);
+  border-radius: 6px;
+  padding: 18px 22px;
+  flex: 1;
+  min-width: 140px;
+}
+.article-body .gauge-card-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8B9BB4;
+  margin-bottom: 6px;
+}
+.article-body .gauge-card-value {
+  font-family: 'Barlow Condensed', 'Cairo', sans-serif;
+  font-size: 42px;
+  font-weight: 900;
+  line-height: 1;
+  color: #ffffff;
+}
+.article-body .gauge-card-value.green { color: #00843D; }
+.article-body .gauge-card-value.gold  { color: #C9A84C; }
+.article-body .gauge-card-sub {
+  font-size: 11px;
+  color: #8B9BB4;
+  margin-top: 4px;
+}
+.article-body .progress-bar-wrap {
+  margin-top: 10px;
+  background: rgba(255,255,255,0.07);
+  border-radius: 2px;
+  height: 4px;
+  overflow: hidden;
+}
+.article-body .progress-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: #00843D;
+}
+.article-body .progress-bar-fill.gold { background: #C9A84C; }
+
+/* ── DIVIDER ── */
+.article-body hr,
+.article-body .divider {
+  border: none;
+  border-top: 1px solid rgba(139,155,180,0.15);
+  margin: 40px 0;
+}
+
+/* ── TEAM CARDS GRID ── */
+.article-body .overview-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  margin: 20px 0;
+}
+.article-body .team-card {
+  background: rgba(11,20,38,0.8);
+  padding: 20px 16px;
+  border: 1px solid rgba(139,155,180,0.08);
+  transition: border-color 0.2s;
+}
+.article-body .team-card:hover { border-color: rgba(201,168,76,0.3); }
+.article-body .team-card-flag { font-size: 26px; margin-bottom: 6px; }
+.article-body .team-card-name {
+  font-family: 'Barlow Condensed', 'Cairo', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+.article-body .team-card-prob {
+  font-family: 'Barlow Condensed', 'Cairo', sans-serif;
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+.article-body .team-card-prob.high { color: #00843D; }
+.article-body .team-card-prob.mid  { color: #C9A84C; }
+.article-body .team-card-prob.low  { color: #8B9BB4; }
+
+/* ── RELATED ARTICLES GRID ── */
+.article-body .related-articles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 16px 0;
+}
+.article-body .related-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.article-body .related-card:hover {
+  border-color: rgba(200,162,82,0.4);
+  background: rgba(255,255,255,0.07);
+}
+.article-body .related-card-date {
+  font-size: 10px;
+  color: #C8A252;
+  font-family: monospace;
+  margin-bottom: 6px;
+  letter-spacing: 0.05em;
+}
+.article-body .related-card-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+.article-body .related-card-link {
+  font-size: 12px;
+  color: #00843D;
+  font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════
+   MOBILE RESPONSIVE OVERRIDES
+═══════════════════════════════════════════ */
+@media (max-width: 768px) {
+  /* Tactics grid → single column */
+  .article-body .tactics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Overview/team cards → 2 columns */
+  .article-body .overview-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Related articles → 1 column */
+  .article-body .related-articles {
+    grid-template-columns: 1fr;
+  }
+
+  /* Gauge cards — stack nicely */
+  .article-body .gauge-card {
+    min-width: 120px;
+  }
+
+  /* Pull quote smaller on mobile */
+  .article-body .pull-quote p {
+    font-size: 18px;
+  }
+
+  /* H3 on mobile */
+  .article-body h3 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Team cards → 1 column on tiny screens */
+  .article-body .overview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Gauge row → full width stacking */
+  .article-body .gauge-card {
+    min-width: 100%;
+  }
 }

@@ -20,7 +20,7 @@ const navLinks = [
   { name: 'خدماتنا', href: '#services' },
   { name: 'دراسات حالة', href: '#case-studies' },
   { name: 'المرصد', href: '#stats-hub' },
-  { name: 'التحليلات', href: 'https://news.dzanalytica.com' },
+  { name: 'التحليلات', href: '#blog' },
   { name: 'اتصل بنا', href: '#contact' },
 ];
 
@@ -33,6 +33,118 @@ const formatDate = (dateString: string, currentLang: string) => {
   });
 };
 
+const categoryTranslations: Record<string, Record<string, string>> = {
+  all: { ar: 'الكل', en: 'All', fr: 'Tout' },
+  wc: { ar: 'كأس العالم 2026', en: 'World Cup 2026', fr: 'Coupe du Monde 2026' },
+  dz: { ar: 'السوق الجزائري', en: 'Algerian Market', fr: 'Marché Algérien' },
+  erp: { ar: 'أنظمة Odoo ERP', en: 'Odoo ERP Systems', fr: 'Systèmes Odoo ERP' }
+};
+
+const getCategoryOfArticle = (article: any, currentLang: string) => {
+  const titleText = (article.title[currentLang] || article.title['ar'] || '').toLowerCase();
+  const excerptText = (article.excerpt[currentLang] || article.excerpt['ar'] || '').toLowerCase();
+  const contentText = (article.content[currentLang] || article.content['ar'] || '').toLowerCase();
+  const keywords = ((article.keywords[currentLang] || article.keywords['en'] || '') + ' ' + titleText + ' ' + excerptText + ' ' + contentText).toLowerCase();
+  
+  if (keywords.includes('odoo') || keywords.includes('erp') || keywords.includes('نظام') || keywords.includes('برمجيات')) {
+    return 'erp';
+  }
+  if (keywords.includes('algeria') || keywords.includes('الجزائر') || keywords.includes('فنك') || keywords.includes('dz')) {
+    if (keywords.includes('world cup') || keywords.includes('كأس العالم') || keywords.includes('مونديال')) {
+      return 'wc';
+    }
+    return 'dz';
+  }
+  if (keywords.includes('world cup') || keywords.includes('كأس العالم') || keywords.includes('مونديال') || keywords.includes('منتخب') || keywords.includes('مباراة') || keywords.includes('كرة')) {
+    return 'wc';
+  }
+  return 'other';
+};
+
+const getGaugesForArticle = (slug: string, lang: string) => {
+  const isAr = lang === 'ar';
+  const isFr = lang === 'fr';
+
+  switch (slug) {
+    case 'fifa-world-cup-2026-overall-winner-predictions':
+      return [
+        { label: isAr ? 'إسبانيا — احتمالية اللقب' : isFr ? 'Espagne — Probabilité de Titre' : 'Spain — Championship Prob.', value: '18.5%', desc: isAr ? 'المرشح الأول للبطولة' : isFr ? 'Favori numéro 1' : 'Top ranked contender', pct: 18.5, color: 'green' },
+        { label: isAr ? 'البرازيل — احتمالية اللقب' : isFr ? 'Brésil — Probabilité de Titre' : 'Brazil — Championship Prob.', value: '16.2%', desc: isAr ? 'المرشح الثاني للبطولة' : isFr ? 'Favori numéro 2' : 'Second ranked contender', pct: 16.2, color: 'green' },
+        { label: isAr ? 'فرنسا — احتمالية اللقب' : isFr ? 'France — Probabilité de Titre' : 'France — Championship Prob.', value: '14.8%', desc: isAr ? 'بطل نسخة 2018' : isFr ? 'Champion 2018' : '2018 Champion', pct: 14.8, color: 'gold' },
+        { label: isAr ? 'عمليات المحاكاة' : isFr ? 'Simulations de Monte Carlo' : 'Monte Carlo Simulations', value: '10,000', desc: isAr ? 'محاكاة كاملة للمسار' : isFr ? 'Simulations complètes' : 'Complete tournament paths', pct: 100, color: 'slate' }
+      ];
+    case 'algeria-vs-austria-2026-world-cup-prediction':
+      return [
+        { label: isAr ? 'الجزائر — احتمالية الفوز' : isFr ? 'Algérie — Probabilité de Victoire' : 'Algeria — Win Probability', value: '42%', desc: isAr ? 'توقعات عالية للفوز' : isFr ? 'Forte chance de victoire' : 'High win expectancy', pct: 42, color: 'green' },
+        { label: isAr ? 'احتمالية التعادل' : isFr ? 'Probabilité de Match Nul' : 'Draw Probability', value: '30%', desc: isAr ? 'سيناريو التعادل التكتيكي' : isFr ? 'Scénario nul tactique' : 'Tactical draw scenario', pct: 30, color: 'gold' },
+        { label: isAr ? 'النمسا — احتمالية الفوز' : isFr ? 'Autriche — Probabilité de Victoire' : 'Austria — Win Probability', value: '28%', desc: isAr ? 'تحت قيادة رالف رانجنيك' : isFr ? 'Sous Ralf Rangnick' : 'Under Ralf Rangnick', pct: 28, color: 'slate' },
+        { label: isAr ? 'الجزائر — الأهداف المتوقعة' : isFr ? 'Algérie — Expected Goals (xG)' : 'Algeria — Expected Goals (xG)', value: '1.45', desc: isAr ? 'معدل التهديف المتوقع' : isFr ? 'Taux de buts attendus' : 'Projected scoring rate', pct: 65, color: 'green' }
+      ];
+    case 'morocco-vs-brazil-2026-world-cup-simulation':
+      return [
+        { label: isAr ? 'احتمالية التعادل' : isFr ? 'Probabilité de Match Nul' : 'Draw Probability', value: '41%', desc: isAr ? 'سيناريو الجولة الأولى الفعلي' : isFr ? 'Scénario réel Matchday 1' : 'Actual Matchday 1 scenario', pct: 41, color: 'green' },
+        { label: isAr ? 'البرازيل — الاستحواذ' : isFr ? 'Brésil — Possession' : 'Brazil — Possession', value: '62%', desc: isAr ? 'سيطرة متوقعة على الكرة' : isFr ? 'Contrôle attendu' : 'Expected ball control', pct: 62, color: 'slate' },
+        { label: isAr ? 'ياسين بونو — نسبة الإنقاذ' : isFr ? 'Bono — Taux d\'Arrêts' : 'Bono — Save Rate', value: '89%', desc: isAr ? 'أداء حاسم أمام الهجوم' : isFr ? 'Performance décisive' : 'Decisive performance', pct: 89, color: 'green' },
+        { label: isAr ? 'تصنيف إيلو للمغرب' : isFr ? 'Classement Elo Maroc' : 'Morocco Elo Rating', value: '1,841', desc: isAr ? 'الأعلى في القارة الأفريقية' : isFr ? 'Top en Afrique' : 'Highest in Africa', pct: 90, color: 'gold' }
+      ];
+    default:
+      return [
+        { label: isAr ? 'دقة التوقع للنموذج' : isFr ? 'Précision du Modèle' : 'Model Prediction Accuracy', value: '94%', desc: isAr ? 'دقة المعايرة الإحصائية' : isFr ? 'Calibration statistique' : 'Statistical calibration accuracy', pct: 94, color: 'green' },
+        { label: isAr ? 'النمو المتوقع لسوق الرعاية B2B' : isFr ? 'Croissance du Sponsoring B2B' : 'B2B Sponsorship Market Growth', value: '+40%', desc: isAr ? 'مقارنة بنسخة 2022' : isFr ? 'Par rapport à 2022' : 'Compared to 2022 tournament', pct: 40, color: 'gold' },
+        { label: isAr ? 'حجم العينة المستهدفة' : isFr ? 'Taille de l\'Échantillon' : 'Target Sample Size', value: '50k+', desc: isAr ? 'سلوكيات مستهلكين محللة' : isFr ? 'Profils de consommation' : 'Analyzed consumer profiles', pct: 80, color: 'green' },
+        { label: isAr ? 'نقاط البيانات الكلية' : isFr ? 'Points de Données Totaux' : 'Total Data Points', value: '1.2M', desc: isAr ? 'بيانات ديموغرافية وجغرافية' : isFr ? 'Données démographiques' : 'Demographic & geographic variables', pct: 100, color: 'slate' }
+      ];
+  }
+};
+
+const getSidebarInsights = (slug: string, lang: string) => {
+  const isAr = lang === 'ar';
+  const isFr = lang === 'fr';
+
+  switch (slug) {
+    case 'fifa-world-cup-2026-overall-winner-predictions':
+      return {
+        takeaways: [
+          isAr ? 'حملات الرعاية المشتركة بين العلامات التجارية الإسبانية والبرازيلية ستشهد عوائد قياسية.' : 'Joint sponsorship campaigns between Spanish and Brazilian brands will yield record returns.',
+          isAr ? 'الشركات الرقمية الرياضية يجب أن تستهدف خدمات البث المباشر المخصصة للأجهزة المحمولة.' : 'Sports digital agencies should target mobile-focused streaming integrations.',
+          isAr ? 'الحصص السوقية للشركات الراعية لفرنسا مهددة بالانخفاض في حال الخروج المبكر.' : 'Market share for brands sponsoring France is at risk in case of an early exit.'
+        ],
+        confidence: isAr ? 'دقة عالية (92%)' : 'High Confidence (92%)',
+        elo: '2,071 (Spain)'
+      };
+    case 'algeria-vs-austria-2026-world-cup-prediction':
+      return {
+        takeaways: [
+          isAr ? 'مباراة حسم التأهل ستشهد أعلى معدل مشاهدة تلفزيونية ورقمية في الجزائر لعام 2026.' : 'The decider match will command the highest TV and digital viewership in Algeria for 2026.',
+          isAr ? 'العلامات التجارية المحلية للأغذية والمشروبات يجب أن تكثف حملاتها قبل المباراة بـ 48 ساعة.' : 'Local food and beverage brands should ramp up campaigns 48 hours before kickoff.',
+          isAr ? 'قطاع الفعاليات ومناطق المشجعين سيشهد تدفقات مالية استثنائية B2B.' : 'B2B hospitality and fan zone sectors will see exceptional financial inflows.'
+        ],
+        confidence: isAr ? 'متوسطة (78%)' : 'Medium Confidence (78%)',
+        elo: '1,814 (Algeria)'
+      };
+    case 'morocco-vs-brazil-2026-world-cup-simulation':
+      return {
+        takeaways: [
+          isAr ? 'تعادل المغرب التاريخي مع البرازيل ضاعف القيمة التجارية لأسود الأطلس بنسبة 220%.' : 'Morocco\'s historic draw with Brazil multiplied the commercial value of the Atlas Lions by 220%.',
+          isAr ? 'الاستثمار الإعلاني الموجه للجمهور المغربي يمثل القناة التسويقية الأكثر ربحية للمعلنين الإقليميين.' : 'Ad spend targeting the Moroccan audience represents the most profitable channel for regional advertisers.',
+          isAr ? 'الأداء الدفاعي المميز للمغرب يدعم الشراكات التجارية طويلة الأجل مع العلامات التجارية الكبرى.' : 'Morocco\'s outstanding defensive performance supports long-term commercial partnerships with global brands.'
+        ],
+        confidence: isAr ? 'عالية (85%)' : 'High Confidence (85%)',
+        elo: '1,841 (Morocco)'
+      };
+    default:
+      return {
+        takeaways: [
+          isAr ? 'يجب على الشركات الجزائرية استغلال قنوات التواصل الرقمية المتكاملة لتوسيع حصتها السوقية.' : 'Algerian companies must leverage integrated digital communication channels to expand market share.',
+          isAr ? 'التحليلات الديموغرافية الدقيقة تمثل المفتاح الأساسي لتصميم استراتيجيات تسويق موجهة وفعالة.' : 'Precise demographic analytics represent the key to designing targeted and effective marketing strategies.',
+          isAr ? 'الاستثمار في أنظمة إدارة الموارد السحابية Odoo ERP يدعم التحول الهيكلي للشركات المحلية.' : 'Investment in cloud Odoo ERP systems supports the structural transformation of local enterprises.'
+        ],
+        confidence: isAr ? 'عالية (94%)' : 'High Confidence (94%)',
+        elo: '1,756 (Qatar)'
+      };
+  }
+};
+
 export default function App() {
   const { t, lang, setLang } = useTranslation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -42,6 +154,26 @@ export default function App() {
   const [isEthicsOpen, setIsEthicsOpen] = useState(false);
   const [activeServiceTab, setActiveServiceTab] = useState<'market-polling' | 'ai-prediction' | 'software-erp'>('market-polling');
   const [selectedArticle, setSelectedArticle] = useState<any | null>(null);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [visibleArticlesCount, setVisibleArticlesCount] = useState(6);
+
+  // Filter articles based on category and search query
+  const filteredArticles = articles.filter(article => {
+    const titleText = (article.title[lang] || article.title['ar'] || '').toLowerCase();
+    const excerptText = (article.excerpt[lang] || article.excerpt['ar'] || '').toLowerCase();
+    const contentText = (article.content[lang] || article.content['ar'] || '').toLowerCase();
+    
+    const matchesSearch = !searchQuery || 
+      titleText.includes(searchQuery.toLowerCase()) ||
+      excerptText.includes(searchQuery.toLowerCase()) ||
+      contentText.includes(searchQuery.toLowerCase());
+      
+    const cat = getCategoryOfArticle(article, lang);
+    const matchesCategory = selectedCategory === 'all' || selectedCategory === cat;
+    
+    return matchesSearch && matchesCategory;
+  });
 
   useEffect(() => {
     // Secret ways to open modals directly via URL path or parameters
@@ -576,38 +708,39 @@ export default function App() {
           </div>
           
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
               <motion.div 
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
+                className="flex flex-col items-center"
               >
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-dz-gold mb-6">
                   <Database className="h-4 w-4" />
                   <span className="text-sm font-semibold tracking-wider">{t("مركز القيادة الرقمي ومحاكاة MiroFish")}</span>
                 </div>
-                <h2 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+                <h2 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight text-center">
                   {t("مركز القيادة الرقمي لمشاريعك التواصلية الميدانية")} <br/>
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-dz-gold to-dz-gold-light">
                     {t("المدمج بالكامل مع محاكاة الرأي العام والعدوى الاجتماعية (MiroFish).")}
                   </span>
                 </h2>
-                <p className="text-gray-400 text-lg mb-4 leading-relaxed">
+                <p className="text-gray-400 text-lg mb-6 leading-relaxed text-center max-w-3xl">
                   {t("نقدم أول منصة سحابية جزائرية تدمج بين القيادة الرقمية الميدانية ومحاكاة الرأي العام وسلوك المستهلك بالاعتماد على الذكاء الاصطناعي (MiroFish). تتيح لك المنصة نمذجة آلاف الحسابات والبروفايلات الافتراضية، ورسم خرائط إدراكية لشخصياتهم، ومحاكاة كيفية تفاعلهم وانتشار الأفكار والعدوى الاجتماعية بينهم لتوجيه حملاتك الميدانية بدقة متناهية.")}
                 </p>
-                <p className="text-gray-400 text-lg mb-8 leading-relaxed">
+                <p className="text-gray-400 text-lg mb-8 leading-relaxed text-center max-w-3xl">
                   {t("تُمكنك المنصة من اختبار القرارات، الإعلانات، والسياسات قبل إطلاقها ميدانياً. بنقرة واحدة، يمكنك إطلاق محاكاة تفاعلية كاملة بين الحسابات الافتراضية ومراقبة كيف تتطور النقاشات وتتحول الآراء وتتأثر الفئات المختلفة بلحظات، لتحديد الاستراتيجية الأنسب وتوجيه الميدان بكل أمان.")}
                 </p>
                 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8 text-right max-w-3xl">
                   {[
                     { icon: Layers, title: t("الخرائط الإدراكية السيكومترية"), desc: t("رسم خرائط ذهنية إدراكية مفصلة للبروفايلات الافتراضية وتحديد قيمها وتوجهاتها الأساسية.") },
                     { icon: BrainCircuit, title: t("محاكاة النقاش والعدوى الاجتماعية"), desc: t("نمذجة انتشار الأفكار، الإشاعات، والمشاعر الاجتماعية بين آلاف الوكلاء في شبكة تواصل افتراضية.") },
                     { icon: Target, title: t("التوجيه التنبؤي الاستراتيجي"), desc: t("تحديد الرسائل والزوايا الإقناعية الأكثر تأثيراً في الفئات المستهدفة بناءً على نتائج المحاكاة.") },
                     { icon: ShieldCheck, title: t("بيئة رملية سيادية وآمنة"), desc: t("اختبر سيناريوهات \"ماذا لو\" (What-if) الحساسة في بيئة سحابية جزائرية محلية آمنة ومتوافقة 100%.") }
                   ].map((feature, i) => (
-                    <div key={i} className="flex gap-4">
+                    <div key={i} className="flex gap-4 items-start">
                       <div className="w-10 h-10 rounded-lg bg-dz-green/20 flex items-center justify-center shrink-0 mt-1">
                         <feature.icon className="w-5 h-5 text-dz-green" />
                       </div>
@@ -629,88 +762,6 @@ export default function App() {
                 >
                   {t("احجز عرضاً تجريبياً لمحاكاة MiroFish")}
                 </a>
-              </motion.div>
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="relative"
-              >
-                {/* Mock SaaS Dashboard UI */}
-                <div className="bg-dz-darker rounded-2xl border border-white/10 shadow-2xl overflow-hidden">
-                  <div className="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-black/40">
-                    <div className="flex gap-2">
-                      <div className="w-3 h-3 rounded-full bg-red-500/80" />
-                      <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-                      <div className="w-3 h-3 rounded-full bg-green-500/80" />
-                    </div>
-                    <div className="text-xs font-mono text-gray-500 flex items-center gap-2">
-                      <Cloud className="w-3 h-3" />
-                      MiroFish / Swarm Control
-                    </div>
-                  </div>
-                  
-                  <div className="p-6">
-                    <div className="flex items-center justify-between mb-8">
-                      <div>
-                        <h3 className="text-lg font-bold">{t("لوحة محاكاة الرأي العام (MiroFish)")}</h3>
-                        <p className="text-sm text-gray-500">{t("السيناريو: ردود الفعل على إطلاق منتج وطني جديد")}</p>
-                      </div>
-                      <div className="bg-dz-green/20 text-dz-green px-3 py-1 rounded-full text-xs font-bold border border-dz-green/30 flex items-center gap-1">
-                        <div className="w-2 h-2 rounded-full bg-dz-green animate-pulse" />
-                        {t("محاكاة نشطة")}
-                      </div>
-                    </div>
-
-                    {/* Query UI */}
-                    <div className="space-y-3 mb-8">
-                       <div className="flex items-center gap-3 text-sm bg-white/5 p-3 rounded-lg border border-white/5">
-                         <span className="bg-black/30 px-2 py-1 rounded text-white font-mono">{t("الناشط المتمرد")}</span>
-                       </div>
-                       <div className="flex items-center gap-3 text-sm bg-white/5 p-3 rounded-lg border border-white/5">
-                         <span className="text-gray-500 font-bold">{t("استبعاد")}</span>
-                         <span className="text-gray-300">{t("درجة التردد العالية في اتخاذ القرار")}</span>
-                         <span className="bg-black/30 px-2 py-1 rounded text-red-400 font-mono">&gt; 70%</span>
-                       </div>
-                    </div>
-
-                    <div className="mt-4 grid grid-cols-3 gap-4 pt-6 border-t border-white/10">
-                      <div className="bg-white/5 rounded-xl p-4 text-center">
-                        <div className="text-gray-500 text-xs mb-1">{t("المطابقة الكلية")}</div>
-                        <div className="text-xl font-bold text-white">12,450</div>
-                        <div className="text-[10px] text-gray-500 mt-1">{t("شخص يطابق المعايير")}</div>
-                      </div>
-                      <div className="bg-white/5 rounded-xl p-4 text-center border border-dz-gold/30 relative overflow-hidden">
-                        <div className="absolute inset-0 bg-dz-gold/5" />
-                        <div className="text-dz-gold text-xs mb-1 relative z-10">{t("فرصة التفاعل")}</div>
-                        <div className="text-xl font-bold text-white relative z-10">68%</div>
-                        <div className="text-[10px] text-gray-400 mt-1 relative z-10">High Propensity</div>
-                      </div>
-                      <div className="bg-dz-green hover:bg-dz-green-light cursor-pointer transition-colors rounded-xl p-4 text-center flex flex-col items-center justify-center group">
-                        <Share2 className="w-5 h-5 text-white mb-2 group-hover:scale-110 transition-transform" />
-                        <div className="text-xs font-bold text-white">{t("إرسال للميدان")}</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Floating Element */}
-                <motion.div 
-                  initial={{ y: 20, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.8, duration: 0.5 }}
-                  className="relative mt-4 sm:mt-0 sm:absolute sm:-bottom-6 sm:-left-6 bg-dz-darker p-4 rounded-xl border border-white/10 shadow-xl flex items-center gap-4 z-20"
-                >
-                  <div className="w-12 h-12 bg-dz-green/20 rounded-full flex items-center justify-center">
-                    <CheckCircle2 className="w-6 h-6 text-dz-green" />
-                  </div>
-                  <div>
-                    <div className="text-sm font-bold">{t("تم تخصيص القائمة")}</div>
-                    <div className="text-xs text-gray-400">{t("لـ فريق العمل الميداني (حسين داي)")}</div>
-                  </div>
-                </motion.div>
               </motion.div>
             </div>
           </div>
@@ -780,49 +831,116 @@ export default function App() {
         <StatsHub />
 
         {/* Blog / Insights Section */}
-        <section id="blog" className="py-20 bg-dz-dark relative overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <section id="blog" className="py-24 bg-dz-dark relative overflow-hidden border-t border-white/5">
+          <div className="absolute inset-0 z-0">
+            <div className="absolute left-1/3 top-0 w-96 h-96 bg-dz-gold/5 rounded-full mix-blend-screen filter blur-[100px] opacity-20" />
+          </div>
+
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-4xl font-bold mb-4">{t("تحليلات دزاير (DZ Insights)")}</h2>
+              <h2 className="text-4xl font-bold mb-6">{t("تحليلات دزاير (DZ Insights)")}</h2>
               <p className="text-gray-400 text-lg">
                 {t("تحليلات ودراسات أسبوعية معمقة حول السوق والتوجهات الاقتصادية والتكنولوجية بالجزائر.")}
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {articles.slice(0, 3).map((article, index) => {
-                const title = article.title[lang] || article.title['ar'];
-                const excerpt = article.excerpt[lang] || article.excerpt['ar'];
-                return (
-                  <motion.div
-                    key={article.slug}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    className="bg-dz-darker border border-white/10 rounded-2xl p-6 hover:border-dz-gold/50 transition-all duration-300 flex flex-col justify-between group"
+            {/* Category tabs and Search bar */}
+            <div className="flex flex-col md:flex-row gap-4 justify-between items-center mb-12 bg-white/5 p-4 rounded-2xl border border-white/10">
+              {/* Category tabs */}
+              <div className="flex flex-wrap gap-2 w-full md:w-auto">
+                {['all', 'wc', 'dz', 'erp'].map(cat => (
+                  <button
+                    key={cat}
+                    onClick={() => {
+                      setSelectedCategory(cat);
+                      setVisibleArticlesCount(6); // Reset pagination
+                    }}
+                    className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all duration-300 border ${
+                      selectedCategory === cat
+                        ? 'bg-dz-gold text-dz-darker border-dz-gold shadow-[0_0_15px_rgba(200,162,82,0.3)]'
+                        : 'bg-white/5 text-gray-400 border-white/10 hover:text-white hover:bg-white/10 font-sans'
+                    }`}
                   >
-                    <div>
-                      <div className="text-xs text-dz-gold mb-3 font-mono">
-                        {formatDate(article.date, lang)}
-                      </div>
-                      <h3 className="text-xl font-bold mb-4 text-white group-hover:text-dz-gold transition-colors line-clamp-2">
-                        {title}
-                      </h3>
-                      <p className="text-gray-400 text-sm leading-relaxed mb-6 line-clamp-3">
-                        {excerpt}
-                      </p>
-                    </div>
-                    <button
-                      onClick={() => setSelectedArticle(article)}
-                      className="text-dz-green hover:text-dz-green-light font-bold text-sm flex items-center gap-2 transition-colors self-start cursor-pointer mt-auto"
-                    >
-                      {t("اقرأ التحليل الكامل")} &rarr;
-                    </button>
-                  </motion.div>
-                );
-              })}
+                    {categoryTranslations[cat]?.[lang] || cat}
+                  </button>
+                ))}
+              </div>
+
+              {/* Search input */}
+              <div className="relative w-full md:w-80 font-sans">
+                <input
+                  type="text"
+                  placeholder={lang === 'ar' ? 'البحث في التحليلات والتقارير...' : lang === 'fr' ? 'Rechercher des analyses...' : 'Search insights and reports...'}
+                  value={searchQuery}
+                  onChange={(e) => {
+                    setSearchQuery(e.target.value);
+                    setVisibleArticlesCount(6); // Reset pagination
+                  }}
+                  className="w-full bg-dz-darker border border-white/10 rounded-xl py-2.5 px-4 text-xs sm:text-sm focus:outline-none focus:border-dz-gold transition-colors text-white placeholder-gray-500 text-right"
+                  dir={lang === 'ar' ? 'rtl' : 'ltr'}
+                />
+              </div>
             </div>
+
+            {/* Articles Grid */}
+            {filteredArticles.length === 0 ? (
+              <div className="text-center py-12 bg-white/5 rounded-2xl border border-white/10 font-sans">
+                <p className="text-gray-400 text-sm">{lang === 'ar' ? 'لم يتم العثور على أي تحليلات تطابق بحثك.' : 'No insights found matching your search.'}</p>
+              </div>
+            ) : (
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {filteredArticles.slice(0, visibleArticlesCount).map((article, index) => {
+                  const title = article.title[lang] || article.title['ar'];
+                  const excerpt = article.excerpt[lang] || article.excerpt['ar'];
+                  const cat = getCategoryOfArticle(article, lang);
+                  return (
+                    <motion.div
+                      key={article.slug}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: (index % 3) * 0.1 }}
+                      className="bg-dz-darker border border-white/10 rounded-2xl p-6 hover:border-dz-gold/50 transition-all duration-300 flex flex-col justify-between group"
+                    >
+                      <div>
+                        <div className="flex items-center justify-between mb-4 text-[10px] font-bold text-dz-gold uppercase tracking-wider font-sans">
+                          <span>{categoryTranslations[cat]?.[lang] || 'Insights'}</span>
+                          <span className="text-gray-500 font-mono font-normal">{formatDate(article.date, lang)}</span>
+                        </div>
+                        <h3 className="text-xl font-bold mb-4 text-white group-hover:text-dz-gold transition-colors line-clamp-2 leading-snug">
+                          {title}
+                        </h3>
+                        <p className="text-gray-400 text-sm leading-relaxed mb-6 line-clamp-3">
+                          {excerpt}
+                        </p>
+                      </div>
+                      <button
+                        onClick={() => {
+                          setSelectedArticle(article);
+                          window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }}
+                        className="text-dz-green hover:text-dz-green-light font-bold text-sm flex items-center gap-2 transition-colors self-start cursor-pointer mt-auto font-sans"
+                      >
+                        {t("اقرأ التحليل الكامل")} &rarr;
+                      </button>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            )}
+
+            {/* Load More Button */}
+            {filteredArticles.length > visibleArticlesCount && (
+              <div className="flex justify-center mt-12 font-sans">
+                <button
+                  onClick={() => setVisibleArticlesCount(prev => prev + 6)}
+                  className="px-8 py-3 rounded-full bg-transparent border-2 border-white/20 hover:border-dz-gold hover:text-dz-gold text-white font-bold text-sm transition-all duration-300 cursor-pointer"
+                >
+                  {lang === 'ar' ? 'عرض المزيد من التحليلات' : lang === 'fr' ? 'Afficher plus d\'analyses' : 'Load More Insights'}
+                </button>
+              </div>
+            )}
+
           </div>
         </section>
 
@@ -1020,69 +1138,232 @@ export default function App() {
       {/* Ethics Modal */}
       <EthicsModal isOpen={isEthicsOpen} onClose={() => setIsEthicsOpen(false)} />
 
-      {/* Article Modal */}
+      {/* Full-Page Article Takeover Overlay */}
       <AnimatePresence>
         {selectedArticle && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-            {/* Backdrop */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setSelectedArticle(null)}
-              className="absolute inset-0 bg-black/80 backdrop-blur-md"
-            />
-
-            {/* Modal Box */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative bg-dz-darker w-full max-w-4xl max-h-[85vh] rounded-3xl border border-white/10 overflow-hidden shadow-2xl z-10 flex flex-col"
-            >
-              {/* Header */}
-              <div className="flex items-center justify-between px-8 py-6 border-b border-white/10 bg-black/40">
-                <div className="text-xs font-mono text-dz-gold">
-                  {formatDate(selectedArticle.date, lang)}
-                </div>
-                <button
-                  onClick={() => setSelectedArticle(null)}
-                  className="text-gray-400 hover:text-white transition-colors cursor-pointer p-1 rounded-full hover:bg-white/5"
-                >
-                  <X className="w-6 h-6" />
-                </button>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-dz-darker overflow-y-auto w-full h-full flex flex-col font-sans"
+          >
+            {/* Takeover Header */}
+            <header className="sticky top-0 z-40 bg-dz-darker/90 backdrop-blur-md border-b border-white/10 px-4 sm:px-8 py-4 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <BrainCircuit className="h-6 w-6 text-dz-gold" />
+                <span className="font-bold text-lg tracking-tight">
+                  <span className="text-white">{t("دزاير")} </span>
+                  <span className="text-dz-gold">{t("أناليتيكا")}</span>
+                </span>
+              </div>
+              
+              <div className="text-xs text-gray-500 font-mono hidden md:block">
+                {lang === 'ar' ? 'تقرير دزاير أناليتيكا التنبؤي B2B' : 'DZ Analytica B2B Market & Sports Report'}
               </div>
 
-              {/* Scrollable Content */}
-              <div className="p-8 overflow-y-auto space-y-6 flex-1 custom-scrollbar">
-                <h1 className="text-3xl md:text-4xl font-black text-white leading-tight">
-                  {selectedArticle.title[lang] || selectedArticle.title['ar']}
-                </h1>
-                
-                {selectedArticle.keywords[lang] && (
-                  <div className="flex flex-wrap gap-2 text-xs">
-                    {selectedArticle.keywords[lang].split(',').map((kw: string, i: number) => (
-                      <span key={i} className="bg-white/5 text-gray-400 px-3 py-1 rounded-full border border-white/5">
-                        #{kw.trim()}
-                      </span>
+              <div className="flex items-center gap-3">
+                {/* Language Switcher inside reader */}
+                <div className="relative group mr-2">
+                  <button className="flex items-center text-gray-300 hover:text-white font-medium text-xs uppercase bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg">
+                    <Languages className="w-3.5 h-3.5 ml-1" />
+                    {lang}
+                  </button>
+                  <div className="absolute right-0 mt-2 w-24 bg-dz-darker border border-white/10 rounded-md shadow-xl opacity-0 group-hover:opacity-100 transition-opacity invisible group-hover:visible z-50">
+                    {['ar', 'en', 'fr'].map((l) => (
+                      <button
+                        key={l}
+                        onClick={() => setLang(l as Language)}
+                        className={`block w-full text-left px-4 py-2 text-xs uppercase hover:bg-white/5 ${lang === l ? 'text-dz-gold' : 'text-gray-300'}`}
+                      >
+                        {l}
+                      </button>
                     ))}
                   </div>
-                )}
+                </div>
 
-                <div 
-                  className="text-gray-300 space-y-4 leading-relaxed text-lg prose prose-invert max-w-none pt-4 border-t border-white/5"
-                  dir={lang === 'ar' ? 'rtl' : 'ltr'}
+                <button
+                  onClick={() => setSelectedArticle(null)}
+                  className="flex items-center gap-2 text-sm text-gray-300 hover:text-white transition-colors cursor-pointer bg-white/5 border border-white/10 hover:border-dz-gold/50 px-4 py-2 rounded-full font-bold text-xs"
                 >
-                  <div 
-                    className="whitespace-pre-line"
+                  <ArrowLeft className="w-3.5 h-3.5 rtl:rotate-180" />
+                  <span>{lang === 'ar' ? 'العودة' : lang === 'fr' ? 'Retour' : 'Back'}</span>
+                </button>
+              </div>
+            </header>
+
+            {/* Immersive Article Content Container */}
+            <div className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+              
+              {/* HERO SECTION */}
+              <section className="relative mb-12 pb-8 border-b border-white/10">
+                {/* Background Large Text Watermark */}
+                <div className="absolute right-0 top-0 text-[160px] font-black text-white/5 select-none pointer-events-none font-sans leading-none z-0 hidden lg:block uppercase tracking-wider">
+                  {selectedArticle.keywords[lang]?.split(',')[0]?.trim() || 'DZ-ANALYTICA'}
+                </div>
+
+                <div className="relative z-10 space-y-4">
+                  <div className="inline-flex items-center gap-2 text-xs font-bold text-dz-gold uppercase tracking-wider">
+                    <span className="px-2.5 py-0.5 rounded bg-dz-gold/10 border border-dz-gold/20">
+                      {categoryTranslations[getCategoryOfArticle(selectedArticle, lang)]?.[lang] || 'Insights'}
+                    </span>
+                    <span className="text-gray-500">•</span>
+                    <span className="text-gray-400 font-mono">{formatDate(selectedArticle.date, lang)}</span>
+                    <span className="text-gray-500">•</span>
+                    <span className="text-gray-400">{lang === 'ar' ? 'قراءة 5 دقائق' : lang === 'fr' ? 'Lecture 5 min' : '5 min read'}</span>
+                  </div>
+
+                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight font-sans">
+                    {selectedArticle.title[lang] || selectedArticle.title['ar']}
+                  </h1>
+
+                  <p className="text-gray-400 text-lg sm:text-xl font-light max-w-4xl leading-relaxed">
+                    {selectedArticle.excerpt[lang] || selectedArticle.excerpt['ar']}
+                  </p>
+                </div>
+
+                {/* GAUGE CARDS ROW */}
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-8 relative z-10">
+                  {getGaugesForArticle(selectedArticle.slug, lang).map((gauge, idx) => (
+                    <div key={idx} className="bg-dz-darker border border-white/10 rounded-xl p-4 sm:p-5 flex flex-col justify-between">
+                      <div>
+                        <div className="text-[10px] font-bold tracking-wider text-gray-500 uppercase mb-2">{gauge.label}</div>
+                        <div className={`text-2xl sm:text-3xl font-extrabold tracking-tight ${
+                          gauge.color === 'green' ? 'text-dz-green-light' : gauge.color === 'gold' ? 'text-dz-gold' : 'text-white'
+                        }`}>{gauge.value}</div>
+                      </div>
+                      <div className="mt-3">
+                        <div className="text-[10px] text-gray-400 leading-normal mb-2">{gauge.desc}</div>
+                        <div className="h-1 bg-white/5 rounded-full overflow-hidden">
+                          <div className={`h-full ${
+                            gauge.color === 'green' ? 'bg-dz-green' : gauge.color === 'gold' ? 'bg-dz-gold' : 'bg-gray-500'
+                          }`} style={{ width: `${gauge.pct}%` }} />
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </section>
+
+              {/* CONTENT GRID: main body & sidebar */}
+              <div className="grid lg:grid-cols-3 gap-12 items-start">
+                
+                {/* Main Content (2 columns) */}
+                <div className="lg:col-span-2 space-y-6">
+                  <article 
+                    className="article-body font-sans text-gray-300 leading-relaxed text-[15px] prose prose-invert max-w-none"
+                    dir={lang === 'ar' ? 'rtl' : 'ltr'}
                     dangerouslySetInnerHTML={{ 
-                      __html: (selectedArticle.content[lang] || selectedArticle.content['ar']) 
-                    }} 
+                      __html: selectedArticle.content[lang] || selectedArticle.content['ar'] 
+                    }}
                   />
                 </div>
+
+                {/* Sidebar Column (1 column) */}
+                <div className="space-y-6">
+                  {/* B2B Strategic Takeaways Card */}
+                  <div className="bg-dz-darker border border-white/10 rounded-2xl p-6">
+                    <h3 className="text-md font-bold text-white uppercase tracking-wider border-b border-white/10 pb-3 mb-4 flex items-center gap-2">
+                      <Target className="w-4 h-4 text-dz-gold" />
+                      <span>{lang === 'ar' ? 'أهم التوصيات الاستراتيجية B2B' : lang === 'fr' ? 'Recommandations Stratégiques B2B' : 'B2B Strategic Takeaways'}</span>
+                    </h3>
+                    <ul className="space-y-3 text-xs sm:text-sm text-gray-400">
+                      {getSidebarInsights(selectedArticle.slug, lang).takeaways.map((takeaway, idx) => (
+                        <li key={idx} className="flex gap-2 items-start leading-relaxed text-right">
+                          <span className="w-1.5 h-1.5 rounded-full bg-dz-gold mt-1.5 shrink-0" />
+                          <span>{takeaway}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Model Projections Card */}
+                  <div className="bg-dz-darker border border-white/10 rounded-2xl p-6">
+                    <h3 className="text-md font-bold text-white uppercase tracking-wider border-b border-white/10 pb-3 mb-4 flex items-center gap-2">
+                      <Brain className="w-4 h-4 text-dz-green" />
+                      <span>{lang === 'ar' ? 'مؤشرات النمذجة التنبؤية' : lang === 'fr' ? 'Indicateurs de Modélisation' : 'Model Projections'}</span>
+                    </h3>
+                    
+                    <div className="space-y-4 text-right">
+                      <div>
+                        <div className="text-[10px] text-gray-500 uppercase tracking-wider mb-1">{lang === 'ar' ? 'مستوى الثقة الإحصائية' : 'Model Confidence Index'}</div>
+                        <div className="text-sm font-bold text-white">{getSidebarInsights(selectedArticle.slug, lang).confidence}</div>
+                      </div>
+                      <div>
+                        <div className="text-[10px] text-gray-500 uppercase tracking-wider mb-1">{lang === 'ar' ? 'تصنيف Elo الفعلي للمرشح' : 'Candidate Elo Rating'}</div>
+                        <div className="text-sm font-bold text-white">{getSidebarInsights(selectedArticle.slug, lang).elo}</div>
+                      </div>
+                      <div>
+                        <div className="text-[10px] text-gray-500 uppercase tracking-wider mb-1">{lang === 'ar' ? 'إشراف وتحليل البيانات' : 'Data Integrity & Supervision'}</div>
+                        <div className="text-sm font-bold text-white">DZ Analytica Sports Lab</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Tag Cloud Card */}
+                  <div className="bg-dz-darker border border-white/10 rounded-2xl p-6">
+                    <h3 className="text-md font-bold text-white uppercase tracking-wider border-b border-white/10 pb-3 mb-4 flex items-center gap-2">
+                      <Layers className="w-4 h-4 text-gray-400" />
+                      <span>{lang === 'ar' ? 'الوسوم والكلمات الدليليلة' : 'Taxonomy Tags'}</span>
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                      {(selectedArticle.keywords[lang] || selectedArticle.keywords['en'])?.split(',').map((kw: string, idx: number) => (
+                        <span key={idx} className="text-xs bg-white/5 border border-white/10 text-gray-400 px-3 py-1.5 rounded-lg hover:border-dz-gold hover:text-white transition-colors">
+                          #{kw.trim()}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
               </div>
-            </motion.div>
-          </div>
+
+              {/* RELATED COVERAGE CARD GRID */}
+              <section className="mt-16 pt-12 border-t border-white/10">
+                <h2 className="text-2xl font-black text-white mb-8 flex items-center gap-2">
+                  <Layers className="h-5 w-5 text-dz-gold" />
+                  <span>{lang === 'ar' ? 'تغطية ذات صلة بالحدث' : lang === 'fr' ? 'Couverture Connexe' : 'Related Coverage'}</span>
+                </h2>
+                
+                <div className="grid md:grid-cols-3 gap-6">
+                  {articles
+                    .filter(a => a.slug !== selectedArticle.slug)
+                    .slice(0, 3)
+                    .map((article, idx) => {
+                      const title = article.title[lang] || article.title['ar'];
+                      const excerpt = article.excerpt[lang] || article.excerpt['ar'];
+                      const catCategory = getCategoryOfArticle(article, lang);
+                      return (
+                        <div
+                          key={article.slug}
+                          onClick={() => {
+                            setSelectedArticle(article);
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                          }}
+                          className="bg-dz-darker border border-white/10 rounded-2xl p-6 hover:border-dz-gold/50 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
+                        >
+                          <div>
+                            <div className="text-[10px] text-dz-gold font-bold uppercase tracking-wider mb-2">
+                              {categoryTranslations[catCategory]?.[lang] || 'Insights'}
+                            </div>
+                            <h3 className="text-md font-bold text-white group-hover:text-dz-gold transition-colors line-clamp-2 leading-snug mb-3">
+                              {title}
+                            </h3>
+                            <p className="text-gray-400 text-xs leading-relaxed line-clamp-3 mb-4">
+                              {excerpt}
+                            </p>
+                          </div>
+                          <div className="text-dz-green group-hover:text-white transition-colors text-xs font-bold flex items-center gap-1 mt-auto">
+                            <span>{lang === 'ar' ? 'اقرأ المزيد' : 'Read more'}</span>
+                            <ChevronLeft className="w-3.5 h-3.5 rtl:rotate-180" />
+                          </div>
+                        </div>
+                      );
+                    })}
+                </div>
+              </section>
+
+            </div>
+          </motion.div>
         )}
       </AnimatePresence>
     </div>
